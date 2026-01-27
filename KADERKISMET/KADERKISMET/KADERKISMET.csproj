@@ -111,5 +111,8 @@
   <ItemGroup>
     <None Include="Resources\icons8_idea_200px1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_google_classroom_200px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
