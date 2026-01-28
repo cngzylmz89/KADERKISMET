@@ -121,6 +121,9 @@
   <data name="icons8_maximize_window_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_maximize_window_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_minimize_window_26px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_minimize_window_26px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_restore_window_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_restore_window_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,16 +133,19 @@
   <data name="icons8_idea_200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_idea_200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_up_200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_up_200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_minimize_window_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_minimize_window_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_close_window_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_close_window_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_minimize_window_26px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_minimize_window_26px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8_google_classroom_200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_google_classroom_200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_down_200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_down_200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
