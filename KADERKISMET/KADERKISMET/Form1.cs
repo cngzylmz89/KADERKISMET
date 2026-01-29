@@ -73,5 +73,10 @@ namespace KADERKISMET
             pcksologr.ImageLocation = @"C:\SINIFFOTOLARI\5A\4.jpeg";
             pcksagogr.ImageLocation = @"C:\SINIFFOTOLARI\5A\8.jpeg";
         }
+
+        public string excelcon;
+        public int sinif, sure1, sure2;
+        public string ders, konu, test;
+
     }
 }
