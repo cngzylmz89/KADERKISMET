@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|c:\\users\\win10\\desktop\\ceng\u0130z\\kaderkismet\\kaderkismet\\kaderkismet\\frmbaslangic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|c:\\users\\win10\\desktop\\ceng\u0130z\\kaderkismet\\kaderkismet\\kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\kaderkismet\\frmbaslangic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\frmbaslangic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|c:\\users\\win10\\desktop\\ceng\u0130z\\kaderkismet\\kaderkismet\\kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\kaderkismet\\frmbaslangic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\frmbaslangic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|c:\\users\\win10\\desktop\\ceng\u0130z\\kaderkismet\\kaderkismet\\kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\kaderkismet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4477030A-2949-49BA-897E-E0D31DADEA95}|KADERKISMET\\KADERKISMET.csproj|solutionrelative:kaderkismet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,52 +35,61 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "frmbaslangic.cs",
+              "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs",
+              "RelativeDocumentMoniker": "KADERKISMET\\frmbaslangic.cs",
+              "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs",
+              "RelativeToolTip": "KADERKISMET\\frmbaslangic.cs",
+              "ViewState": "AgIAAJMCAAAAAAAAAAAtwJ8CAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T09:27:05.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Program.cs",
+              "RelativeDocumentMoniker": "KADERKISMET\\Program.cs",
+              "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Program.cs",
+              "RelativeToolTip": "KADERKISMET\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T08:17:02.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Form1.cs",
               "RelativeDocumentMoniker": "KADERKISMET\\Form1.cs",
-              "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Form1.cs",
-              "RelativeToolTip": "KADERKISMET\\Form1.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwE4AAAAnAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Form1.cs*",
+              "RelativeToolTip": "KADERKISMET\\Form1.cs*",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwDEAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-29T11:28:00.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Form1.cs",
               "RelativeDocumentMoniker": "KADERKISMET\\Form1.cs",
               "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\Form1.cs [Design]",
               "RelativeToolTip": "KADERKISMET\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T11:27:41.072Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-01-29T11:27:41.072Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmbaslangic.cs",
-              "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs",
-              "RelativeDocumentMoniker": "KADERKISMET\\frmbaslangic.cs",
-              "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs",
-              "RelativeToolTip": "KADERKISMET\\frmbaslangic.cs",
-              "ViewState": "AgIAADwBAAAAAAAAAAAiwEIBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T08:59:53.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmbaslangic.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs",
               "RelativeDocumentMoniker": "KADERKISMET\\frmbaslangic.cs",
               "ToolTip": "C:\\Users\\Win10\\Desktop\\CENG\u0130Z\\KADERKISMET\\KADERKISMET\\KADERKISMET\\frmbaslangic.cs [Design]",
               "RelativeToolTip": "KADERKISMET\\frmbaslangic.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T07:37:54.87Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-01-27T07:37:54.87Z"
             }
           ]
         }

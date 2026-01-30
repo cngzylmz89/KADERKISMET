@@ -86,9 +86,6 @@ namespace KADERKISMET
                     frm.test = cmbtest.Text;
                     frm.sure1 = int.Parse(numericUpDown1.Value.ToString());
                     frm.sure2 = int.Parse(numericUpDown2.Value.ToString());
-                    frm.Show();
-                    this.Hide();
-
                     using (OleDbConnection conn = new OleDbConnection(con.baglan))
                     {
                         conn.Open();
@@ -118,15 +115,22 @@ namespace KADERKISMET
                             cmd.ExecuteNonQuery();
                         }
                     }
+                    frm.Show();
+                    this.Hide();
 
-                    MessageBox.Show("Güncelleme tamamlandı ✔");
+                    
+
+                    
                 }
-
                 else
                 {
-                    MessageBox.Show("Lütfen takımların sayılarını biri diğerinden en çok bir fazla olacak şekilde veya eşit olacak şekilde ayarla.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen kaynak seçerek ders, konu, test bilgilerini giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Lütfen takımların sayılarını biri diğerinden en çok bir fazla olacak şekilde veya eşit olacak şekilde ayarla.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -202,7 +206,7 @@ namespace KADERKISMET
                 dataGridView1.Columns["FOTOYOL"].Width = 300;
 
                 conn.Open();
-                OleDbDataAdapter da1 = new OleDbDataAdapter("select ID, OGRADSOYAD AS 'ADI SOYADI', OGRNUMARA AS 'NUMARASI',OGRSINIF, SINIFAD  AS 'SINIFI', OGRGRUP, OGRFOTOYOL, OGRYOKLAMA FROM TBLOGRENCILER INNER JOIN TBLSINIF ON TBLSINIF.SINIFID=TBLOGRENCILER.OGRSINIF WHERE OGRSINIF LIKE'" + cmbsinif.SelectedValue + "%'", conn);
+                OleDbDataAdapter da1 = new OleDbDataAdapter("select ID, OGRADSOYAD AS 'ADI SOYADI', OGRNUMARA AS 'NUMARASI',OGRSINIF, SINIFAD  AS 'SINIFI', OGRGRUP, OGRFOTOYOL, OGRYOKLAMA FROM TBLOGRENCILER INNER JOIN TBLSINIF ON TBLSINIF.SINIFID=TBLOGRENCILER.OGRSINIF WHERE OGRSINIF LIKE'" + cmbsinif.SelectedValue + "'", conn);
                 DataTable dt1 = new DataTable();
                 da1.Fill(dt1);
                 //colunnları sırasını belli eder
@@ -759,8 +763,9 @@ namespace KADERKISMET
         {
             
             ogrencilistele();
-            SayilariGuncelle();
             GrupSayilariniHesapla();
+            SayilariGuncelle();
+           
             btnkaynaksec.Enabled = true;
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -43,7 +44,16 @@ namespace KADERKISMET
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+          
+          frmbaslangic frm=new frmbaslangic();
+            frm.Show();
+            OleDbConnection conn = new OleDbConnection(con.baglan);
+            conn.Open();
+            OleDbCommand komutvaryokguncelle = new OleDbCommand("update TBLOGRENCILER SET OGRVARYOK=True", conn);
+            komutvaryokguncelle.ExecuteNonQuery();
+
+            conn.Close();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -65,18 +75,165 @@ namespace KADERKISMET
                 button2.Visible = true;
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            pictureBox1.Parent = pcksologr;
-            pictureBox2.Parent = pcksagogr;
-            pcksologr.ImageLocation = @"C:\SINIFFOTOLARI\5A\4.jpeg";
-            pcksagogr.ImageLocation = @"C:\SINIFFOTOLARI\5A\8.jpeg";
-        }
-
+        baglantisinif con=new baglantisinif();
+        //---> frmbaslangic TAN GELEN DEĞİŞKENLER
         public string excelcon;
         public int sinif, sure1, sure2;
         public string ders, konu, test;
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            kirmizisecim();
+            mavisecim();
+        }
+
+        //Form1 DEĞİŞKENLERİ
+        
+        void kirmizisecim()
+        {
+
+            int secilenID = -1;
+            string ogrAdSoyad = "";
+            string ogrNumara = "";
+            string ogrFotoYol = "";
+
+            using (OleDbConnection conn = new OleDbConnection(con.baglan))
+            {
+                conn.Open();
+
+                // 1️⃣ Şarta uyan TÜM öğrencileri çek
+                string selectSql = @"
+        SELECT 
+               [ID],
+               [OGRADSOYAD],
+               [OGRNUMARA],
+               [OGRFOTOYOL]
+        FROM [TBLOGRENCILER]
+        WHERE [OGRGRUP] = True
+        AND [OGRYOKLAMA] = True
+        AND [OGRVARYOK] = True
+        AND [OGRSINIF] = ?";
+
+                OleDbCommand cmd = new OleDbCommand(selectSql, conn);
+                cmd.Parameters.AddWithValue("?", sinif);
+
+                DataTable dt = new DataTable();
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                da.Fill(dt);
+
+                // 2️⃣ Rastgele seç
+                if (dt.Rows.Count > 0)
+                {
+                    Random rnd = new Random();
+                    int index = rnd.Next(dt.Rows.Count);
+
+                    DataRow row = dt.Rows[index];
+
+                    secilenID = Convert.ToInt32(row["ID"]);
+                    ogrAdSoyad = row["OGRADSOYAD"].ToString();
+                    ogrNumara = row["OGRNUMARA"].ToString();
+                    ogrFotoYol = row["OGRFOTOYOL"].ToString();
+
+                    // 3️⃣ Seçilen kişiyi havuzdan çıkar
+                    OleDbCommand updateCmd = new OleDbCommand(
+                        "UPDATE [TBLOGRENCILER] SET [OGRVARYOK] = False WHERE [ID] = ?", conn);
+                    updateCmd.Parameters.AddWithValue("?", secilenID);
+                    updateCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    pcksologr.Image = null;
+                    lbladsoyadkirmizi.Text = "ÖĞRENCİ BİTTİ.";
+                    lblnumarakirmizi.Text = null;
+                    return;
+                }
+            }
+
+            // 4️⃣ UI güncelle
+            pcksologr.ImageLocation = ogrFotoYol;
+            lbladsoyadkirmizi.Text = ogrAdSoyad;
+            lblnumarakirmizi.Text = ogrNumara;
+        }
+
+
+        void mavisecim()
+        {
+            int secilenID = -1;
+            string ogrAdSoyad = "";
+            string ogrNumara = "";
+            string ogrFotoYol = "";
+
+            using (OleDbConnection conn = new OleDbConnection(con.baglan))
+            {
+                conn.Open();
+
+                // 1️⃣ Şarta uyan TÜM öğrencileri çek
+                string selectSql = @"
+        SELECT 
+               [ID],
+               [OGRADSOYAD],
+               [OGRNUMARA],
+               [OGRFOTOYOL]
+        FROM [TBLOGRENCILER]
+        WHERE [OGRGRUP] = False
+        AND [OGRYOKLAMA] = True
+        AND [OGRVARYOK] = True
+        AND [OGRSINIF] = ?";
+
+                OleDbCommand cmd = new OleDbCommand(selectSql, conn);
+                cmd.Parameters.AddWithValue("?", sinif);
+
+                DataTable dt = new DataTable();
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                da.Fill(dt);
+
+                // 2️⃣ Rastgele seç
+                if (dt.Rows.Count > 0)
+                {
+                    Random rnd = new Random();
+                    int index = rnd.Next(dt.Rows.Count);
+
+                    DataRow row = dt.Rows[index];
+
+                    secilenID = Convert.ToInt32(row["ID"]);
+                    ogrAdSoyad = row["OGRADSOYAD"].ToString();
+                    ogrNumara = row["OGRNUMARA"].ToString();
+                    ogrFotoYol = row["OGRFOTOYOL"].ToString();
+
+                    // 3️⃣ Seçilen kişiyi havuzdan çıkar
+                    OleDbCommand updateCmd = new OleDbCommand(
+                        "UPDATE [TBLOGRENCILER] SET [OGRVARYOK] = False WHERE [ID] = ?", conn);
+                    updateCmd.Parameters.AddWithValue("?", secilenID);
+                    updateCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    pcksagogr.Image = null;
+                    return;
+                }
+            }
+
+            // 4️⃣ UI güncelle
+            pcksagogr.ImageLocation = ogrFotoYol;
+            //lbladsoyadkirmizi.Text = ogrAdSoyad;
+            //lblnumarakirmizi.Text = ogrNumara;
+
+        }
+
+
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+            
+
+            pictureBox1.Parent = pcksologr;
+            pictureBox2.Parent = pcksagogr;
+            
+        }
+
+        
 
     }
 }
