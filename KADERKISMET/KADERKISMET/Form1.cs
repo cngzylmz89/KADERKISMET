@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace KADERKISMET
 {
@@ -24,6 +25,9 @@ namespace KADERKISMET
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
+
+        SoundPlayer dogruSes;
+        SoundPlayer yanlisSes;
         public Form1()
         {
             InitializeComponent();
@@ -80,13 +84,44 @@ namespace KADERKISMET
         baglantisinif con=new baglantisinif();
         //---> frmbaslangic TAN GELEN DEĞİŞKENLER
         public string excelcon;
-        public int sinif, sure1, sure2,sure1basla;
+        public int sinif, sure1, sure2,sure1basla, sure2basla;
         public string ders, konu, test;
+        int kirmiziskor, maviskor;
+        bool dogruyanlis;
+        bool kirmiziogrencisecim, maviogrencisecim;
+
+        bool kirmiziSecildi = false;
+        bool maviSecildi = false;
+
+        bool cevapVerildi = false;
+
+        int orijinalFontSize = 14;   // (Label'larının mevcut font size'ı neyse onu yaz)
+        Timer animTimer = new Timer();
+        int animAdim = 0;
+        Label animLabel = null;
+        float baslangicFontSize = 0;
+
+        enum Takim
+        {
+            Yok = 0,
+            Kirmizi = 1,
+            Mavi = 2
+        }
+
+        Takim aktifTakim = Takim.Yok;
+        bool soruCevaplandi = false;
+
 
         string asama;
         private void btnsorugetir_Click_1(object sender, EventArgs e)
         {
             sorugetir();       // ⛔️ EKSİK OLAN BUYDU
+            if (string.IsNullOrEmpty(aktifSoru))
+            {
+                rchsoru.Text = "SORULAR BİTTİ ❗";
+                btnsorugetir.Enabled = false;
+                return;
+            }
 
             if (string.IsNullOrEmpty(aktifSoru))
                 return;
@@ -104,7 +139,17 @@ namespace KADERKISMET
 
         private void btnogrencigetir_Click(object sender, EventArgs e)
         {
+
+            kirmiziSecildi = false;
+            maviSecildi = false;
+            cevapVerildi = false;
+            aktifTakim = Takim.Yok;
+            soruCevaplandi = false;
+            lblmaviskor.Text = maviskor + " PUAN";
+            lblkirmiziskor.Text = kirmiziskor + " PUAN";
             lblsure1.Text = "";
+            lblsure2.Text = "";
+            sure2basla = sure2;
             sure1basla = sure1;
             kirmizisecim();
             mavisecim();
@@ -112,6 +157,7 @@ namespace KADERKISMET
             pictureBox1.Visible=false;
             pictureBox2.Visible=false;
             btnsorugetir.Enabled = true;
+            btnogrencigetir.Enabled = false;
             
         }
         string aktifSoru = "";   // Çekilen soru burada tutulacak
@@ -126,6 +172,7 @@ namespace KADERKISMET
             else
             {
                 timer1.Stop(); // Yazım bitince durdur
+
                 btnsorugetir.Enabled=false;
                 btnkirmiziogrsec.Enabled = true;
                 btnmaviogrsec.Enabled=true;
@@ -145,93 +192,180 @@ namespace KADERKISMET
 
         private void btnkirmiziogrsec_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Visible == false)
-            {
-                pictureBox1.Visible= true;
-            }
-            if (pictureBox2.Visible == true)
-            {
-                pictureBox2.Visible = false;
-            }
-            timer2.Stop();
-            if (sure2 >= 0)
-            {
+            kirmiziSecildi = true;
+            maviSecildi = false;
+            aktifTakim = Takim.Kirmizi;
+            soruCevaplandi = false;
 
-                timer3.Start();
-            }
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = false;
+
+            timer2.Stop();
+            timer3.Start();
+
             btndogru.Enabled = true;
             btnyanlis.Enabled = true;
+
+            btnkirmiziogrsec.Enabled = false;
             btnmaviogrsec.Enabled = false;
-            btnkirmiziogrsec.Enabled=false;
+
         }
 
         private void btnmaviogrsec_Click(object sender, EventArgs e)
         {
-            if (pictureBox2.Visible == false)
-            {
-                pictureBox2 .Visible= true;
-            }
-            if(pictureBox1.Visible == true)
-                { pictureBox1.Visible= false; }
+            maviSecildi = true;
+            kirmiziSecildi = false;
+            aktifTakim = Takim.Mavi;
+            soruCevaplandi = false;
+
+            pictureBox2.Visible = true;
+            pictureBox1.Visible = false;
 
             timer2.Stop();
-            if(sure2> 0)
-                {
-                
-                timer3.Start();
-             }
+            timer3.Start();
 
             btndogru.Enabled = true;
             btnyanlis.Enabled = true;
-            btnkirmiziogrsec.Enabled = false;
-            btnmaviogrsec.Enabled=false;
-        }
 
+            btnkirmiziogrsec.Enabled = false;
+            btnmaviogrsec.Enabled = false;
+        }
+        void PuanVer(bool cevapDogru)
+        {
+            if (aktifTakim == Takim.Yok) return;
+            if (soruCevaplandi) return;
+
+            bool cevapDogruMu = (cevapDogru == dogruyanlis);
+
+            Takim kazananTakim;
+
+            if (cevapDogruMu)
+            {
+                kazananTakim = aktifTakim;
+                dogruSes.Play();   // ✅ DOĞRU SESİ
+            }
+            else
+            {
+                kazananTakim = (aktifTakim == Takim.Kirmizi)
+                                ? Takim.Mavi
+                                : Takim.Kirmizi;
+
+                yanlisSes.Play();  // ❌ YANLIŞ SESİ
+            }
+
+            if (kazananTakim == Takim.Kirmizi)
+            {
+                kirmiziskor += 10;
+                lblkirmiziskor.Text = kirmiziskor + " PUAN";
+                PuanAnimasyonBaslat(lblkirmiziskor);   // 🔥 ANİMASYON
+            }
+            else
+            {
+                maviskor += 10;
+                lblmaviskor.Text = maviskor + " PUAN";
+                PuanAnimasyonBaslat(lblmaviskor);   // 🔥 ANİMASYON
+            }
+
+            soruCevaplandi = true;
+
+        }
         private void timer2_Tick(object sender, EventArgs e)
         {
-            sure1basla--;   // 1 saniye düş
-
+            sure1basla--;
             lblsure1.Text = sure1basla.ToString();
 
             if (sure1basla <= 0)
             {
                 timer2.Stop();
+
+                // 🔴 HİÇBİR TAKIM SEÇİLMEDİYSE → İKİ TAKIMA CEZA
+                if (aktifTakim == Takim.Yok)
+                {
+                    kirmiziskor -= 10;
+                    maviskor -= 10;
+
+                    lblkirmiziskor.Text = kirmiziskor + " PUAN";
+                    lblmaviskor.Text = maviskor + " PUAN";
+
+                    // ❌ BUNU SİL:
+                    // PuanAnimasyonBaslat(lblkirmiziskor);
+                    // PuanAnimasyonBaslat(lblmaviskor);
+
+                    // ✅ YENİSİNİ KOY:
+                    //PuanAnimasyonIkisi(lblkirmiziskor, lblmaviskor);
+
+                    yanlisSes.Play();   // ❌ CEZA SESİ
+                }
+
+                // Butonları doğru ayarla
+                btnogrencigetir.Enabled = true;
+                btnkirmiziogrsec.Enabled = false;
+                btnmaviogrsec.Enabled = false;
+                btndogru.Enabled = false;
+                btnyanlis.Enabled = false;
             }
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            sure2--;   // 1 saniye düş
+            sure2basla--;
+            lblsure2.Text = sure2basla.ToString();
 
-            lblsure2.Text = sure2.ToString();
-
-            if (sure2<= 0)
+            if (sure2basla <= 0)
             {
                 timer3.Stop();
+
+                // 🔴 Takım seçilmiş ama cevap verilmemişse CEZA
+                if (!soruCevaplandi && aktifTakim != Takim.Yok)
+                {
+                    if (aktifTakim == Takim.Kirmizi)
+                    {
+                        kirmiziskor -= 10;
+                        lblkirmiziskor.Text = kirmiziskor + " PUAN";
+
+                        //// ✅ ANİMASYON
+                        //PuanAnimasyonBaslat(lblkirmiziskor);
+                    }
+                    else if (aktifTakim == Takim.Mavi)
+                    {
+                        maviskor -= 10;
+                        lblmaviskor.Text = maviskor + " PUAN";
+
+                        //// ✅ ANİMASYON
+                        //PuanAnimasyonBaslat(lblmaviskor);
+                    }
+
+                    yanlisSes.Play();   // ❌ CEZA SESİ
+                }
+
+                // Butonları düzenle
+                btnogrencigetir.Enabled = true;
+                btndogru.Enabled = false;
+                btnyanlis.Enabled = false;
             }
         }
 
         private void btndogru_Click(object sender, EventArgs e)
         {
-            if(btnkirmiziogrsec.Enabled==true||btnmaviogrsec.Enabled==true)
-            {
-                btnmaviogrsec.Enabled=false;
-                btnkirmiziogrsec.Enabled = false;
-            }
-            btnyanlis.Enabled=false;
-            btndogru.Enabled=false;
+            cevapVerildi = true;
+            timer3.Stop();
+
+            PuanVer(true);   // "Doğru" butonuna basıldı
+
+            btndogru.Enabled = false;
+            btnyanlis.Enabled = false;
             btnogrencigetir.Enabled = true;
         }
 
         private void btnyanlis_Click(object sender, EventArgs e)
         {
-            if (btnkirmiziogrsec.Enabled == true || btnmaviogrsec.Enabled == true)
-            {
-                btnmaviogrsec.Enabled = false;
-                btnkirmiziogrsec.Enabled = false;
-            }
-            btnyanlis.Enabled= false;
+            cevapVerildi = true;
+            timer3.Stop();
+
+            PuanVer(false);  // "Yanlış" butonuna basıldı
+
             btndogru.Enabled = false;
+            btnyanlis.Enabled = false;
             btnogrencigetir.Enabled = true;
         }
 
@@ -239,7 +373,7 @@ namespace KADERKISMET
         {
             int secilenID = -1;
             string soru= "";
-            int dogruyanlis;
+           
             
 
             using (OleDbConnection conn = new OleDbConnection(excelcon))
@@ -279,8 +413,8 @@ namespace KADERKISMET
 
                     secilenID = Convert.ToInt32(row["SORUID"]);
                     aktifSoru = row["SORU"].ToString();
-                    dogruyanlis = int.Parse(row["DOGRUYANLIS"].ToString());
-                    
+                    dogruyanlis = Convert.ToBoolean(row["DOGRUYANLIS"]);
+
                     // 3️⃣ Seçilen soruyu havuzdan çıkar
                     OleDbCommand updateCmd = new OleDbCommand(
                         "UPDATE [TBLSORULAR$] SET [GOSTERIM] = 1 WHERE [SORUID] = ?", conn);
@@ -289,7 +423,18 @@ namespace KADERKISMET
                 }
                 else 
                 {
-                    rchsoru.Text = "SORU KALMADI";
+                    aktifSoru = "";
+                    rchsoru.Clear();
+                    rchsoru.Text = "SORULAR BİTTİ ❗";
+
+                    // Butonları da güvenli hale getirelim
+                    btnsorugetir.Enabled = false;
+                    btnogrencigetir.Enabled = true;
+                    btnkirmiziogrsec.Enabled = false;
+                    btnmaviogrsec.Enabled = false;
+                    btndogru.Enabled = false;
+                    btnyanlis.Enabled = false;
+
                     return;
                 }
             }
@@ -434,11 +579,99 @@ namespace KADERKISMET
             lblnumaramavi.Text= ogrNumara;
          
         }
+        void PuanAnimasyonIkisi(Label lbl1, Label lbl2)
+        {
+            // Önce kırmızıyı çalıştır
+            PuanAnimasyonBaslat(lbl1);
+
+            // Maviyi çok kısa gecikmeyle başlat
+            Timer gecikme = new Timer();
+            gecikme.Interval = 200; // 0.2 saniye
+            gecikme.Tick += (s, e) =>
+            {
+                gecikme.Stop();
+                PuanAnimasyonBaslat(lbl2);
+            };
+            gecikme.Start();
+        }
+        void PuanAnimasyonBaslat(Label lbl)
+        {
+            animLabel = lbl;
+            animAdim = 0;
+
+            // ÖNEMLİ: Mevcut (doğru) font boyutunu kaydet
+            baslangicFontSize = lbl.Font.Size;
+
+            animTimer.Start();
+        }
+
+        private void AnimTimer_Tick(object sender, EventArgs e)
+        {
+            if (animLabel == null) return;
+
+            animAdim++;
+
+            if (animAdim <= 16) // BÜYÜT
+            {
+                animLabel.Font = new Font(
+                    animLabel.Font.FontFamily,
+                    baslangicFontSize + (animAdim / 2f),   // yumuşak büyütme
+                    FontStyle.Bold);
+            }
+            else if (animAdim <= 32) // KÜÇÜLT (ESKİ HALİNE DÖN)
+            {
+                float yeniSize =
+                    baslangicFontSize + (16 - (animAdim - 16)) / 2f;
+
+                animLabel.Font = new Font(
+                    animLabel.Font.FontFamily,
+                    Math.Max(baslangicFontSize, yeniSize),
+                    FontStyle.Regular);
+            }
+            else
+            {
+                // ✅ TAM OLARAK İLK HALİNE GETİR
+                animLabel.Font = new Font(
+                    animLabel.Font.FontFamily,
+                    baslangicFontSize,
+                    FontStyle.Regular);
+
+                animTimer.Stop();
+                animLabel = null;
+            }
+        }
 
 
-        
         private void Form1_Load(object sender, EventArgs e)
         {
+            animTimer.Interval = 30; // Animasyon hızı
+            animTimer.Tick += AnimTimer_Tick;
+
+            string sesKlasoru = System.IO.Path.Combine(Application.StartupPath, "Sounds");
+
+            if (!System.IO.Directory.Exists(sesKlasoru))
+            {
+                MessageBox.Show("Sounds klasörü bulunamadı:\n" + sesKlasoru);
+            }
+
+            string dogruYol = System.IO.Path.Combine(sesKlasoru, "dogru.wav");
+            string yanlisYol = System.IO.Path.Combine(sesKlasoru, "yanlis.wav");
+
+            if (!System.IO.File.Exists(dogruYol))
+                MessageBox.Show("dogru.wav bulunamadı:\n" + dogruYol);
+
+            if (!System.IO.File.Exists(yanlisYol))
+                MessageBox.Show("yanlis.wav bulunamadı:\n" + yanlisYol);
+
+            dogruSes = new SoundPlayer(dogruYol);
+            yanlisSes = new SoundPlayer(yanlisYol);
+
+            MessageBox.Show(System.IO.Path.Combine(Application.StartupPath, "Sounds", "dogru.wav"));
+
+            kirmiziskor = 0;
+            maviskor= 0;
+            kirmiziogrencisecim = true;
+            maviogrencisecim= true;
             timer3.Interval = 1000; // 1 saniye
             timer2.Interval = 1000; // 1 saniye
             timer1.Interval = 150; // 50 ms = hızlı yazım (istersen artır)

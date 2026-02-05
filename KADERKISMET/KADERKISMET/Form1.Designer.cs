@@ -50,7 +50,7 @@
             this.lbladsoyadkirmizi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblkirmizisure = new System.Windows.Forms.Label();
+            this.lblkirmiziskor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.splsagogrenci = new System.Windows.Forms.SplitContainer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -62,7 +62,7 @@
             this.lbladsoyadmavi = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblmavisure = new System.Windows.Forms.Label();
+            this.lblmaviskor = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.splsoru = new System.Windows.Forms.SplitContainer();
             this.panelCerceve = new System.Windows.Forms.Panel();
@@ -85,6 +85,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -397,7 +398,6 @@
             this.lblnumarakirmizi.Name = "lblnumarakirmizi";
             this.lblnumarakirmizi.Size = new System.Drawing.Size(146, 79);
             this.lblnumarakirmizi.TabIndex = 3;
-            this.lblnumarakirmizi.Text = "label6";
             this.lblnumarakirmizi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -423,7 +423,6 @@
             this.lbladsoyadkirmizi.Name = "lbladsoyadkirmizi";
             this.lbladsoyadkirmizi.Size = new System.Drawing.Size(146, 41);
             this.lbladsoyadkirmizi.TabIndex = 1;
-            this.lbladsoyadkirmizi.Text = "label4";
             this.lbladsoyadkirmizi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -444,7 +443,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.lblkirmizisure, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.lblkirmiziskor, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
@@ -455,25 +454,24 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(252, 261);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // lblkirmizisure
+            // lblkirmiziskor
             // 
-            this.lblkirmizisure.AutoSize = true;
-            this.lblkirmizisure.BackColor = System.Drawing.Color.Red;
-            this.lblkirmizisure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblkirmizisure.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblkirmizisure.ForeColor = System.Drawing.Color.White;
-            this.lblkirmizisure.Location = new System.Drawing.Point(3, 89);
-            this.lblkirmizisure.Name = "lblkirmizisure";
-            this.lblkirmizisure.Size = new System.Drawing.Size(246, 172);
-            this.lblkirmizisure.TabIndex = 4;
-            this.lblkirmizisure.Text = "label2";
-            this.lblkirmizisure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblkirmiziskor.AutoSize = true;
+            this.lblkirmiziskor.BackColor = System.Drawing.Color.Red;
+            this.lblkirmiziskor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblkirmiziskor.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblkirmiziskor.ForeColor = System.Drawing.Color.White;
+            this.lblkirmiziskor.Location = new System.Drawing.Point(3, 89);
+            this.lblkirmiziskor.Name = "lblkirmiziskor";
+            this.lblkirmiziskor.Size = new System.Drawing.Size(246, 172);
+            this.lblkirmiziskor.TabIndex = 4;
+            this.lblkirmiziskor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
@@ -575,7 +573,6 @@
             this.lblnumaramavi.Name = "lblnumaramavi";
             this.lblnumaramavi.Size = new System.Drawing.Size(146, 83);
             this.lblnumaramavi.TabIndex = 3;
-            this.lblnumaramavi.Text = "label6";
             this.lblnumaramavi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -601,7 +598,6 @@
             this.lbladsoyadmavi.Name = "lbladsoyadmavi";
             this.lbladsoyadmavi.Size = new System.Drawing.Size(146, 43);
             this.lbladsoyadmavi.TabIndex = 1;
-            this.lbladsoyadmavi.Text = "label4";
             this.lbladsoyadmavi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -622,7 +618,7 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.lblmavisure, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lblmaviskor, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
@@ -633,25 +629,24 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(252, 255);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
-            // lblmavisure
+            // lblmaviskor
             // 
-            this.lblmavisure.AutoSize = true;
-            this.lblmavisure.BackColor = System.Drawing.Color.Blue;
-            this.lblmavisure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblmavisure.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblmavisure.ForeColor = System.Drawing.Color.White;
-            this.lblmavisure.Location = new System.Drawing.Point(3, 83);
-            this.lblmavisure.Name = "lblmavisure";
-            this.lblmavisure.Size = new System.Drawing.Size(246, 172);
-            this.lblmavisure.TabIndex = 4;
-            this.lblmavisure.Text = "label2";
-            this.lblmavisure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblmaviskor.AutoSize = true;
+            this.lblmaviskor.BackColor = System.Drawing.Color.Blue;
+            this.lblmaviskor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblmaviskor.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblmaviskor.ForeColor = System.Drawing.Color.White;
+            this.lblmaviskor.Location = new System.Drawing.Point(3, 83);
+            this.lblmaviskor.Name = "lblmaviskor";
+            this.lblmaviskor.Size = new System.Drawing.Size(246, 172);
+            this.lblmaviskor.TabIndex = 4;
+            this.lblmaviskor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
@@ -727,7 +722,7 @@
             this.lblsure2.Name = "lblsure2";
             this.lblsure2.Size = new System.Drawing.Size(498, 101);
             this.lblsure2.TabIndex = 1;
-            this.lblsure2.Text = "label6";
+            this.lblsure2.Text = "2. SÜRE";
             this.lblsure2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblsure1
@@ -740,7 +735,7 @@
             this.lblsure1.Name = "lblsure1";
             this.lblsure1.Size = new System.Drawing.Size(498, 100);
             this.lblsure1.TabIndex = 0;
-            this.lblsure1.Text = "label2";
+            this.lblsure1.Text = "2. SÜRE";
             this.lblsure1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbllytsagbuttonlar
@@ -1048,10 +1043,10 @@
         private System.Windows.Forms.Label lblsure2;
         private System.Windows.Forms.Label lblsure1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label lblkirmizisure;
+        private System.Windows.Forms.Label lblkirmiziskor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label lblmavisure;
+        private System.Windows.Forms.Label lblmaviskor;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tbllytsagbuttonlar;
         private System.Windows.Forms.Button btnogrencigetir;
@@ -1069,6 +1064,7 @@
         private System.Windows.Forms.Panel panelCerceve;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
     }
 }
 
