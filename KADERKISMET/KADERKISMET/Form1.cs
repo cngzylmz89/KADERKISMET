@@ -93,7 +93,20 @@ namespace KADERKISMET
         bool kirmiziSecildi = false;
         bool maviSecildi = false;
 
+        int zoomToplamSure = 600;   // Varsayılan (ms) — sonra sesi göre ayarlayacağız
+        int zoomGecenSure = 0;
+
+        Timer iconZoomTimer = new Timer();
+        PictureBox zoomPic = null;
+        float zoomSize = 1f;
+        bool zoomBuyut = true;
+
+
         bool cevapVerildi = false;
+
+        // 🔽 DOĞRU / YANLIŞ GÖSTERİMİ İÇİN (opsiyonel ama okunaklı)
+        PictureBox AktifDogruPic;
+        PictureBox AktifYanlisPic;
 
         int orijinalFontSize = 14;   // (Label'larının mevcut font size'ı neyse onu yaz)
         Timer animTimer = new Timer();
@@ -120,6 +133,11 @@ namespace KADERKISMET
             {
                 rchsoru.Text = "SORULAR BİTTİ ❗";
                 btnsorugetir.Enabled = false;
+                DialogResult result1=MessageBox.Show("Bilgi", "SORULAR BİTTİ. OYUNU SONLANDIRMAK İSTİYOR MUSUNUZ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(result1 == DialogResult.Yes)
+                {
+
+                }
                 return;
             }
 
@@ -139,7 +157,13 @@ namespace KADERKISMET
 
         private void btnogrencigetir_Click(object sender, EventArgs e)
         {
+            iconZoomTimer.Stop();
+            zoomPic = null;
 
+            pictureBoxkirmizidogru.Visible = false;
+            pictureBoxkirmiziyanlis.Visible = false;
+            pictureBoxmavidogru.Visible = false;
+            pictureBoxmaviyanlis.Visible = false;
             kirmiziSecildi = false;
             maviSecildi = false;
             cevapVerildi = false;
@@ -203,6 +227,12 @@ namespace KADERKISMET
             timer2.Stop();
             timer3.Start();
 
+            AktifDogruPic = pictureBoxkirmizidogru;
+            AktifYanlisPic = pictureBoxkirmiziyanlis;
+
+            pictureBoxkirmizidogru.Visible = false;
+            pictureBoxkirmiziyanlis.Visible = false;
+
             btndogru.Enabled = true;
             btnyanlis.Enabled = true;
 
@@ -224,6 +254,12 @@ namespace KADERKISMET
             timer2.Stop();
             timer3.Start();
 
+            AktifDogruPic = pictureBoxmavidogru;
+            AktifYanlisPic = pictureBoxmaviyanlis;
+
+            pictureBoxmavidogru.Visible = false;
+            pictureBoxmaviyanlis.Visible = false;
+
             btndogru.Enabled = true;
             btnyanlis.Enabled = true;
 
@@ -232,6 +268,9 @@ namespace KADERKISMET
         }
         void PuanVer(bool cevapDogru)
         {
+            // Önce tüm işaretleri gizle
+            if (AktifDogruPic != null) AktifDogruPic.Visible = false;
+            if (AktifYanlisPic != null) AktifYanlisPic.Visible = false;
             if (aktifTakim == Takim.Yok) return;
             if (soruCevaplandi) return;
 
@@ -241,12 +280,25 @@ namespace KADERKISMET
 
             if (cevapDogruMu)
             {
+                if (AktifDogruPic != null)
+                {
+                    AktifDogruPic.Visible = true;
+                    ZoomAnimasyonBaslat(AktifDogruPic,
+                        System.IO.Path.Combine(Application.StartupPath, "Sounds", "dogru.wav"));
+                }
                 kazananTakim = aktifTakim;
                 dogruSes.Play();   // ✅ DOĞRU SESİ
             }
             else
             {
-                kazananTakim = (aktifTakim == Takim.Kirmizi)
+                if (AktifYanlisPic != null)
+                {
+                    AktifYanlisPic.Visible = true;
+                    ZoomAnimasyonBaslat(AktifYanlisPic,
+                        System.IO.Path.Combine(Application.StartupPath, "Sounds", "yanlis.wav"));
+                }
+            
+            kazananTakim = (aktifTakim == Takim.Kirmizi)
                                 ? Takim.Mavi
                                 : Takim.Kirmizi;
 
@@ -281,8 +333,8 @@ namespace KADERKISMET
                 // 🔴 HİÇBİR TAKIM SEÇİLMEDİYSE → İKİ TAKIMA CEZA
                 if (aktifTakim == Takim.Yok)
                 {
-                    kirmiziskor -= 10;
-                    maviskor -= 10;
+                    //kirmiziskor -= 10;
+                    //maviskor -= 10;
 
                     lblkirmiziskor.Text = kirmiziskor + " PUAN";
                     lblmaviskor.Text = maviskor + " PUAN";
@@ -303,6 +355,7 @@ namespace KADERKISMET
                 btnmaviogrsec.Enabled = false;
                 btndogru.Enabled = false;
                 btnyanlis.Enabled = false;
+                
             }
         }
 
@@ -342,11 +395,13 @@ namespace KADERKISMET
                 btnogrencigetir.Enabled = true;
                 btndogru.Enabled = false;
                 btnyanlis.Enabled = false;
+                
             }
         }
 
         private void btndogru_Click(object sender, EventArgs e)
         {
+           
             cevapVerildi = true;
             timer3.Stop();
 
@@ -355,10 +410,12 @@ namespace KADERKISMET
             btndogru.Enabled = false;
             btnyanlis.Enabled = false;
             btnogrencigetir.Enabled = true;
+            
         }
 
         private void btnyanlis_Click(object sender, EventArgs e)
         {
+           
             cevapVerildi = true;
             timer3.Stop();
 
@@ -640,12 +697,72 @@ namespace KADERKISMET
                 animLabel = null;
             }
         }
+        void ZoomAnimasyonBaslat(PictureBox pck, string sesYolu)
+        {
+            if (pck == null) return;
+
+            zoomPic = pck;
+            zoomGecenSure = 0;
+            zoomToplamSure = (int)SesSuresiMilisaniye(sesYolu);
+
+            zoomSize = 1f;
+            zoomBuyut = true;
+
+            iconZoomTimer.Start();
+        }
 
 
+        private void IconZoomTimer_Tick(object sender, EventArgs e)
+        {
+            if (zoomPic == null) return;
+
+            zoomGecenSure += iconZoomTimer.Interval;
+
+            float oran = (float)zoomGecenSure / zoomToplamSure; // 0 → 1 arası
+
+            if (oran < 0.5f)   // İlk yarı: büyüt
+            {
+                zoomSize = 1f + (0.3f * (oran * 2)); // 1 → 1.3 arası
+            }
+            else               // İkinci yarı: küçült
+            {
+                zoomSize = 1.3f - (0.3f * ((oran - 0.5f) * 2));
+            }
+
+            int orijinalBoyut = zoomPic.Tag is int ? (int)zoomPic.Tag : zoomPic.Width;
+
+            zoomPic.Width = (int)(orijinalBoyut * zoomSize);
+            zoomPic.Height = (int)(orijinalBoyut * zoomSize);
+
+            if (zoomGecenSure >= zoomToplamSure)
+            {
+                zoomPic.Width = orijinalBoyut;
+                zoomPic.Height = orijinalBoyut;
+
+                iconZoomTimer.Stop();
+                zoomPic = null;
+            }
+        }
+        double SesSuresiMilisaniye(string dosyaYolu)
+        {
+            using (var reader = new System.Media.SoundPlayer(dosyaYolu))
+            {
+                var wav = new System.IO.FileInfo(dosyaYolu);
+                using (var fs = wav.OpenRead())
+                {
+                    // WAV süresini yaklaşık hesapla
+                    return (fs.Length / 176.4); // 44.1kHz için yaklaşık ms
+                }
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             animTimer.Interval = 30; // Animasyon hızı
             animTimer.Tick += AnimTimer_Tick;
+
+            iconZoomTimer.Interval = 30;
+            iconZoomTimer.Tick += IconZoomTimer_Tick;
+
 
             string sesKlasoru = System.IO.Path.Combine(Application.StartupPath, "Sounds");
 
@@ -678,6 +795,16 @@ namespace KADERKISMET
             timer1.Tick += timer1_Tick;
             pictureBox1.Visible= false;
             pictureBox2.Visible= false;
+            pictureBoxmavidogru.Parent = pcksagogr;
+            pictureBoxmaviyanlis.Parent = pcksagogr;
+            pictureBoxkirmizidogru.Parent = pcksologr;
+            pictureBoxkirmiziyanlis.Parent = pcksologr;
+
+            pictureBoxkirmizidogru.Tag = pictureBoxkirmizidogru.Width;
+            pictureBoxkirmiziyanlis.Tag = pictureBoxkirmiziyanlis.Width;
+            pictureBoxmavidogru.Tag = pictureBoxmavidogru.Width;
+            pictureBoxmaviyanlis.Tag = pictureBoxmaviyanlis.Width;
+
             pictureBox1.Parent = pcksologr;
             pictureBox2.Parent = pcksagogr;
 

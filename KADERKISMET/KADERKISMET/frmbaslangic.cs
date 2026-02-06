@@ -864,7 +864,7 @@ namespace KADERKISMET
             {
                 sorubaglanti.Open();
 
-                string sql = "SELECT * FROM [TBLSORULAR$] WHERE KONU = ?";
+                string sql = "SELECT DISTINCT(TESTADI) FROM [TBLSORULAR$] WHERE KONU = ?";
 
                 OleDbCommand cmd = new OleDbCommand(sql, sorubaglanti);
                 cmd.Parameters.AddWithValue("@p1", cmbkonu.SelectedValue.ToString());

@@ -127,6 +127,8 @@
     <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8_checked_checkbox_96px_1.png" />
+    <None Include="Resources\icons8_cross_mark_button_96px.png" />
     <Content Include="Sounds\dogru.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -63,9 +63,29 @@ namespace KADERKISMET.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_checked_checkbox_96px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_checked_checkbox_96px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_close_window_26px {
             get {
                 object obj = ResourceManager.GetObject("icons8_close_window_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cross_mark_button_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cross_mark_button_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
