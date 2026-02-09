@@ -28,6 +28,8 @@ namespace KADERKISMET
 
         SoundPlayer dogruSes;
         SoundPlayer yanlisSes;
+        SoundPlayer kazananSes;
+        SoundPlayer berabereSes;
         public Form1()
         {
             InitializeComponent();
@@ -114,6 +116,11 @@ namespace KADERKISMET
         Label animLabel = null;
         float baslangicFontSize = 0;
 
+        // === RICHTEXTBOX İÇİN KAZANAN ANİMASYONU ===
+        Timer rchKazanAnimTimer = new Timer();
+        float rchKazanFontSize;
+        int rchKazanAnimAdim = 0;
+
         enum Takim
         {
             Yok = 0,
@@ -124,31 +131,129 @@ namespace KADERKISMET
         Takim aktifTakim = Takim.Yok;
         bool soruCevaplandi = false;
 
+        List<int> secilenKirmiziIDs = new List<int>();
+        List<int> secilenMaviIDs = new List<int>();
+
+
 
         string asama;
+
+        void KazananYazisiniRchsoruyaAnimasyonluYaz(string metin, Color renk)
+        {
+            // RichTextBox’u temizle ve ayarla
+            rchsoru.Clear();
+            rchsoru.SelectionAlignment = HorizontalAlignment.Center;
+            rchsoru.ForeColor = renk;
+            rchsoru.Font = new Font("Segoe UI", 20, FontStyle.Bold); // başlangıç boyutu
+            rchsoru.Text = metin;
+
+            rchKazanFontSize = rchsoru.Font.Size;
+            rchKazanAnimAdim = 0;
+
+            rchKazanAnimTimer.Interval = 30;
+            rchKazanAnimTimer.Tick -= RchKazanAnimTimer_Tick;
+            rchKazanAnimTimer.Tick += RchKazanAnimTimer_Tick;
+            rchKazanAnimTimer.Start();
+        }
+
+        private void RchKazanAnimTimer_Tick(object sender, EventArgs e)
+        {
+            rchKazanAnimAdim++;
+
+            if (rchKazanAnimAdim <= 16) // BÜYÜT
+            {
+                rchsoru.Font = new Font(
+                    rchsoru.Font.FontFamily,
+                    rchKazanFontSize + (rchKazanAnimAdim / 2f),
+                    FontStyle.Bold);
+            }
+            else if (rchKazanAnimAdim <= 32) // KÜÇÜLT
+            {
+                float yeniSize =
+                    rchKazanFontSize + (16 - (rchKazanAnimAdim - 16)) / 2f;
+
+                rchsoru.Font = new Font(
+                    rchsoru.Font.FontFamily,
+                    Math.Max(rchKazanFontSize, yeniSize),
+                    FontStyle.Regular);
+            }
+            else
+            {
+                rchsoru.Font = new Font(
+                    rchsoru.Font.FontFamily,
+                    rchKazanFontSize,
+                    FontStyle.Regular);
+
+                rchKazanAnimTimer.Stop();
+            }
+        }
         private void btnsorugetir_Click_1(object sender, EventArgs e)
         {
-            sorugetir();       // ⛔️ EKSİK OLAN BUYDU
+            sorugetir();   // Önce soru çek
+
             if (string.IsNullOrEmpty(aktifSoru))
             {
-                rchsoru.Text = "SORULAR BİTTİ ❗";
+                // Sorular gerçekten bitti → artık sormadan oyunu bitiriyoruz
                 btnsorugetir.Enabled = false;
-                DialogResult result1=MessageBox.Show("Bilgi", "SORULAR BİTTİ. OYUNU SONLANDIRMAK İSTİYOR MUSUNUZ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(result1 == DialogResult.Yes)
-                {
 
+                string sonucMesaji;
+                Color sonucRengi;
+
+                if (kirmiziskor > maviskor)
+                {
+                   
+                    kazananSes.Play();
+                    sonucMesaji = "🔴 KIRMIZI TAKIM KAZANDI!";
+                    sonucRengi = Color.Red;
                 }
+                else if (maviskor > kirmiziskor)
+                {
+                  
+                    kazananSes.Play();
+                    sonucMesaji = "🔵 MAVİ TAKIM KAZANDI!";
+                    sonucRengi = Color.Blue;
+                }
+                else
+                {
+                    
+                    berabereSes.Play();
+                    sonucMesaji = "⚖️ OYUN BERABERE!";
+                    sonucRengi = Color.DarkGoldenrod;
+                }
+
+                // === KAZANANI ANİMASYONLU GÖSTER ===
+                KazananYazisiniRchsoruyaAnimasyonluYaz(sonucMesaji, sonucRengi);
+
+                // ======= SENİN İSTEDİĞİN EK TEMİZLİK (YENİ) =======
+
+                // Öğrenci resimlerini temizle
+                pcksologr.Image = null;
+                pcksagogr.Image = null;
+
+                // Kırmızı takım bilgilerini temizle
+                lbladsoyadkirmizi.Text = "";
+                lblnumarakirmizi.Text = "";
+
+                // Mavi takım bilgilerini temizle
+                lbladsoyadmavi.Text = "";
+                lblnumaramavi.Text = "";
+
+                // ======= GÜVENLİK: DİĞER BUTONLARI KAPAT =======
+                btnogrencigetir.Enabled = false;
+                btnkirmiziogrsec.Enabled = false;
+                btnmaviogrsec.Enabled = false;
+                btndogru.Enabled = false;
+                btnyanlis.Enabled = false;
+
                 return;
             }
 
-            if (string.IsNullOrEmpty(aktifSoru))
-                return;
-
-            rchsoru.Clear();   // Önce temizle
-            harfIndex = 0;     // Baştan başlat
+            // Normal akış (soru varsa)
+            rchsoru.Clear();
+            harfIndex = 0;
             timer1.Start();
             btnogrencigetir.Enabled = false;
-           
+
         }
         //private void btnsorugetir_Click(object sender, EventArgs e)
         //{
@@ -157,6 +262,9 @@ namespace KADERKISMET
 
         private void btnogrencigetir_Click(object sender, EventArgs e)
         {
+            //secilenKirmiziIDs.Clear();
+            //secilenMaviIDs.Clear();
+
             iconZoomTimer.Stop();
             zoomPic = null;
 
@@ -499,10 +607,52 @@ namespace KADERKISMET
             // 4️⃣ UI güncelle
           
         }
-        
+
 
         //Form1 DEĞİŞKENLERİ
-        
+        void KirmiziOgrenciGoster(int id)
+        {
+            using (OleDbConnection conn = new OleDbConnection(con.baglan))
+            {
+                conn.Open();   // 🔥 BUNU EKLEDİK
+
+                OleDbCommand cmd = new OleDbCommand(
+                    "SELECT [OGRADSOYAD],[OGRNUMARA],[OGRFOTOYOL] FROM [TBLOGRENCILER] WHERE [ID] = ?", conn);
+
+                cmd.Parameters.AddWithValue("?", id);
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    pcksologr.ImageLocation = dr["OGRFOTOYOL"].ToString();
+                    lbladsoyadkirmizi.Text = dr["OGRADSOYAD"].ToString();
+                    lblnumarakirmizi.Text = dr["OGRNUMARA"].ToString();
+                }
+                dr.Close();
+            }
+        }
+
+        void MaviOgrenciGoster(int id)
+        {
+            using (OleDbConnection conn = new OleDbConnection(con.baglan))
+            {
+                conn.Open();   // 🔥 BUNU EKLEDİK
+
+                OleDbCommand cmd = new OleDbCommand(
+                    "SELECT [OGRADSOYAD],[OGRNUMARA],[OGRFOTOYOL] FROM [TBLOGRENCILER] WHERE [ID] = ?", conn);
+
+                cmd.Parameters.AddWithValue("?", id);
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    pcksagogr.ImageLocation = dr["OGRFOTOYOL"].ToString();
+                    lbladsoyadmavi.Text = dr["OGRADSOYAD"].ToString();
+                    lblnumaramavi.Text = dr["OGRNUMARA"].ToString();
+                }
+                dr.Close();
+            }
+        }
         void kirmizisecim()
         {
 
@@ -515,7 +665,6 @@ namespace KADERKISMET
             {
                 conn.Open();
 
-                // 1️⃣ Şarta uyan TÜM öğrencileri çek
                 string selectSql = @"
         SELECT 
                [ID],
@@ -535,7 +684,6 @@ namespace KADERKISMET
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 da.Fill(dt);
 
-                // 2️⃣ Rastgele seç
                 if (dt.Rows.Count > 0)
                 {
                     Random rnd = new Random();
@@ -548,14 +696,29 @@ namespace KADERKISMET
                     ogrNumara = row["OGRNUMARA"].ToString();
                     ogrFotoYol = row["OGRFOTOYOL"].ToString();
 
-                    // 3️⃣ Seçilen kişiyi havuzdan çıkar
                     OleDbCommand updateCmd = new OleDbCommand(
                         "UPDATE [TBLOGRENCILER] SET [OGRVARYOK] = False WHERE [ID] = ?", conn);
                     updateCmd.Parameters.AddWithValue("?", secilenID);
                     updateCmd.ExecuteNonQuery();
+
+                    secilenKirmiziIDs.Add(secilenID);
                 }
                 else
                 {
+                    // 🔥 HAVUZ BİTTİ → KENDİ TAKIMINDAN TEKRAR GETİR
+                    if (secilenKirmiziIDs.Count > 0)
+                    {
+                        int tekrarID = secilenKirmiziIDs[0];
+
+                        // Döngü yapalım (aynı kişi hep gelmesin)
+                        secilenKirmiziIDs.RemoveAt(0);
+                        secilenKirmiziIDs.Add(tekrarID);
+
+                        KirmiziOgrenciGoster(tekrarID);
+                        return;
+                    }
+
+                    // Gerçekten kimse yoksa
                     pcksologr.Image = null;
                     lbladsoyadkirmizi.Text = "ÖĞRENCİ BİTTİ.";
                     lblnumarakirmizi.Text = null;
@@ -563,7 +726,7 @@ namespace KADERKISMET
                 }
             }
 
-            // 4️⃣ UI güncelle
+            // Normal yeni seçim varsa UI güncelle
             pcksologr.ImageLocation = ogrFotoYol;
             lbladsoyadkirmizi.Text = ogrAdSoyad;
             lblnumarakirmizi.Text = ogrNumara;
@@ -581,7 +744,6 @@ namespace KADERKISMET
             {
                 conn.Open();
 
-                // 1️⃣ Şarta uyan TÜM öğrencileri çek
                 string selectSql = @"
         SELECT 
                [ID],
@@ -601,7 +763,6 @@ namespace KADERKISMET
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 da.Fill(dt);
 
-                // 2️⃣ Rastgele seç
                 if (dt.Rows.Count > 0)
                 {
                     Random rnd = new Random();
@@ -614,27 +775,40 @@ namespace KADERKISMET
                     ogrNumara = row["OGRNUMARA"].ToString();
                     ogrFotoYol = row["OGRFOTOYOL"].ToString();
 
-                    // 3️⃣ Seçilen kişiyi havuzdan çıkar
                     OleDbCommand updateCmd = new OleDbCommand(
                         "UPDATE [TBLOGRENCILER] SET [OGRVARYOK] = False WHERE [ID] = ?", conn);
                     updateCmd.Parameters.AddWithValue("?", secilenID);
                     updateCmd.ExecuteNonQuery();
+
+                    secilenMaviIDs.Add(secilenID);
                 }
                 else
                 {
+                    // 🔥 HAVUZ BİTTİ → KENDİ TAKIMINDAN TEKRAR GETİR
+                    if (secilenMaviIDs.Count > 0)
+                    {
+                        int tekrarID = secilenMaviIDs[0];
+
+                        // Döngü yapalım
+                        secilenMaviIDs.RemoveAt(0);
+                        secilenMaviIDs.Add(tekrarID);
+
+                        MaviOgrenciGoster(tekrarID);
+                        return;
+                    }
+
                     pcksagogr.Image = null;
                     lbladsoyadmavi.Text = "ÖĞRENCİ BİTTİ.";
                     lblnumaramavi.Text = null;
-
                     return;
                 }
             }
 
-            // 4️⃣ UI güncelle
+            // Normal yeni seçim varsa UI güncelle
             pcksagogr.ImageLocation = ogrFotoYol;
-            lbladsoyadmavi.Text= ogrAdSoyad;
-            lblnumaramavi.Text= ogrNumara;
-         
+            lbladsoyadmavi.Text = ogrAdSoyad;
+            lblnumaramavi.Text = ogrNumara;
+
         }
         void PuanAnimasyonIkisi(Label lbl1, Label lbl2)
         {
@@ -703,7 +877,8 @@ namespace KADERKISMET
 
             zoomPic = pck;
             zoomGecenSure = 0;
-            zoomToplamSure = (int)SesSuresiMilisaniye(sesYolu);
+            zoomToplamSure = 1000;   // 🔥 ARTIK SESLE BAĞLANTILI DEĞİL
+            //zoomToplamSure = (int)SesSuresiMilisaniye(sesYolu);
 
             zoomSize = 1f;
             zoomBuyut = true;
@@ -711,6 +886,23 @@ namespace KADERKISMET
             iconZoomTimer.Start();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult result1=MessageBox.Show("Yeni oyun kurulması için başlangıç sayfasına gidilecek onaylıyor musunuz?","Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result1 == DialogResult.Yes)
+            {
+                frmbaslangic frm = new frmbaslangic();
+                frm.Show();
+                OleDbConnection conn = new OleDbConnection(con.baglan);
+                conn.Open();
+                OleDbCommand komutvaryokguncelle = new OleDbCommand("update TBLOGRENCILER SET OGRVARYOK=True", conn);
+                komutvaryokguncelle.ExecuteNonQuery();
+
+                conn.Close();
+                sorugosterımguncelle();
+                this.Close();
+            }
+        }
 
         private void IconZoomTimer_Tick(object sender, EventArgs e)
         {
@@ -755,8 +947,61 @@ namespace KADERKISMET
                 }
             }
         }
+        Timer kazanAnimTimer = new Timer();
+        float kazanFontSize;
+        int kazanAnimAdim = 0;
+
+        void KazananLabelAnimasyonBaslat(Label lbl)
+        {
+            kazanAnimAdim = 0;
+            kazanFontSize = lbl.Font.Size;
+
+            kazanAnimTimer.Interval = 30;
+            kazanAnimTimer.Tick -= KazanAnimTimer_Tick;
+            kazanAnimTimer.Tick += KazanAnimTimer_Tick;
+
+            kazanAnimTimer.Start();
+        }
+
+        private void KazanAnimTimer_Tick(object sender, EventArgs e)
+        {
+            kazanAnimAdim++;
+
+            if (kazanAnimAdim <= 16) // BÜYÜT
+            {
+                lblkazanantakim.Font = new Font(
+                    lblkazanantakim.Font.FontFamily,
+                    kazanFontSize + (kazanAnimAdim / 2f),
+                    FontStyle.Bold);
+            }
+            else if (kazanAnimAdim <= 32) // KÜÇÜLT
+            {
+                float yeniSize =
+                    kazanFontSize + (16 - (kazanAnimAdim - 16)) / 2f;
+
+                lblkazanantakim.Font = new Font(
+                    lblkazanantakim.Font.FontFamily,
+                    Math.Max(kazanFontSize, yeniSize),
+                    FontStyle.Regular);
+            }
+            else
+            {
+                lblkazanantakim.Font = new Font(
+                    lblkazanantakim.Font.FontFamily,
+                    kazanFontSize,
+                    FontStyle.Regular);
+
+                kazanAnimTimer.Stop();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+
+           
+
+
+
             animTimer.Interval = 30; // Animasyon hızı
             animTimer.Tick += AnimTimer_Tick;
 
@@ -773,6 +1018,12 @@ namespace KADERKISMET
 
             string dogruYol = System.IO.Path.Combine(sesKlasoru, "dogru.wav");
             string yanlisYol = System.IO.Path.Combine(sesKlasoru, "yanlis.wav");
+            string kazananYol = System.IO.Path.Combine(sesKlasoru, "kazanan.wav");
+            string berabereYol = System.IO.Path.Combine(sesKlasoru, "berabeser.wav");
+
+           
+            kazananSes = new SoundPlayer(kazananYol);
+            berabereSes = new SoundPlayer(berabereYol);
 
             if (!System.IO.File.Exists(dogruYol))
                 MessageBox.Show("dogru.wav bulunamadı:\n" + dogruYol);
@@ -783,7 +1034,7 @@ namespace KADERKISMET
             dogruSes = new SoundPlayer(dogruYol);
             yanlisSes = new SoundPlayer(yanlisYol);
 
-            MessageBox.Show(System.IO.Path.Combine(Application.StartupPath, "Sounds", "dogru.wav"));
+            //MessageBox.Show(System.IO.Path.Combine(Application.StartupPath, "Sounds", "dogru.wav"));
 
             kirmiziskor = 0;
             maviskor= 0;
@@ -815,7 +1066,19 @@ namespace KADERKISMET
             rchsoru.BorderStyle = BorderStyle.None;
             rchsoru.Dock = DockStyle.Fill;
 
+            // ==================  DOĞRU KATMAN KURGUSU (TEMİZ ÇÖZÜM) ==================
+
+            
+
+            // RichTextBox panelin arka planı gibi çalışacak
+            rchsoru.Parent = panelCerceve;
+            rchsoru.BorderStyle = BorderStyle.None;
+            rchsoru.Dock = DockStyle.Fill;
+            rchsoru.BringToFront();   // EN ALTTA AMA GÖRÜNÜR
+
+
            
+
 
 
 
