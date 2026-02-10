@@ -31,12 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.splaltanakonteynir = new System.Windows.Forms.SplitContainer();
             this.tbllytpnlsoruogrenci = new System.Windows.Forms.TableLayoutPanel();
             this.splsologrenci = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxkirmiziyanlis = new System.Windows.Forms.PictureBox();
+            this.pictureBoxkirmizidogru = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcksologr = new System.Windows.Forms.PictureBox();
             this.splalt_alt = new System.Windows.Forms.SplitContainer();
             this.tbllytsolalt = new System.Windows.Forms.TableLayoutPanel();
             this.lblnumarakirmizi = new System.Windows.Forms.Label();
@@ -47,6 +55,10 @@
             this.lblkirmiziskor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.splsagogrenci = new System.Windows.Forms.SplitContainer();
+            this.pictureBoxmavidogru = new System.Windows.Forms.PictureBox();
+            this.pictureBoxmaviyanlis = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pcksagogr = new System.Windows.Forms.PictureBox();
             this.splsagalt_alt = new System.Windows.Forms.SplitContainer();
             this.tbllytsagalt = new System.Windows.Forms.TableLayoutPanel();
             this.lblnumaramavi = new System.Windows.Forms.Label();
@@ -58,11 +70,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.splsoru = new System.Windows.Forms.SplitContainer();
             this.panelCerceve = new System.Windows.Forms.Panel();
+            this.lblkazanantakim = new System.Windows.Forms.Label();
             this.rchsoru = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblsure2 = new System.Windows.Forms.Label();
             this.lblsure1 = new System.Windows.Forms.Label();
             this.tbllytsagbuttonlar = new System.Windows.Forms.TableLayoutPanel();
+            this.button6 = new System.Windows.Forms.Button();
             this.tbllytcevapsec = new System.Windows.Forms.TableLayoutPanel();
             this.btnyanlis = new System.Windows.Forms.Button();
             this.btndogru = new System.Windows.Forms.Button();
@@ -75,20 +89,6 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pictureBoxkirmiziyanlis = new System.Windows.Forms.PictureBox();
-            this.pictureBoxkirmizidogru = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pcksologr = new System.Windows.Forms.PictureBox();
-            this.pictureBoxmavidogru = new System.Windows.Forms.PictureBox();
-            this.pictureBoxmaviyanlis = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pcksagogr = new System.Windows.Forms.PictureBox();
-            this.lblkazanantakim = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -105,6 +105,10 @@
             this.splsologrenci.Panel2.SuspendLayout();
             this.splsologrenci.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmiziyanlis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmizidogru)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcksologr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splalt_alt)).BeginInit();
             this.splalt_alt.Panel1.SuspendLayout();
             this.splalt_alt.Panel2.SuspendLayout();
@@ -115,6 +119,10 @@
             this.splsagogrenci.Panel1.SuspendLayout();
             this.splsagogrenci.Panel2.SuspendLayout();
             this.splsagogrenci.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmavidogru)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmaviyanlis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcksagogr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splsagalt_alt)).BeginInit();
             this.splsagalt_alt.Panel1.SuspendLayout();
             this.splsagalt_alt.Panel2.SuspendLayout();
@@ -130,14 +138,6 @@
             this.tbllytsagbuttonlar.SuspendLayout();
             this.tbllytcevapsec.SuspendLayout();
             this.tbllytogrencisec.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmiziyanlis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmizidogru)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcksologr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmavidogru)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmaviyanlis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcksagogr)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -180,6 +180,19 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1281, 49);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_close_window_26px;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(1216, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 49);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -196,6 +209,20 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_minimize_window_26px;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(1088, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(64, 49);
+            this.button4.TabIndex = 1;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button2);
@@ -204,6 +231,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(52, 43);
             this.panel1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_maximize_window_26px;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 43);
+            this.button2.TabIndex = 4;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_restore_window_26px;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.Location = new System.Drawing.Point(0, 0);
+            this.button5.Margin = new System.Windows.Forms.Padding(0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(52, 43);
+            this.button5.TabIndex = 2;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // splaltanakonteynir
             // 
@@ -276,6 +331,56 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(252, 319);
             this.panel2.TabIndex = 1;
+            // 
+            // pictureBoxkirmiziyanlis
+            // 
+            this.pictureBoxkirmiziyanlis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxkirmiziyanlis.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxkirmiziyanlis.Image = global::KADERKISMET.Properties.Resources.icons8_cross_mark_button_96px;
+            this.pictureBoxkirmiziyanlis.Location = new System.Drawing.Point(167, -1);
+            this.pictureBoxkirmiziyanlis.Name = "pictureBoxkirmiziyanlis";
+            this.pictureBoxkirmiziyanlis.Size = new System.Drawing.Size(85, 75);
+            this.pictureBoxkirmiziyanlis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxkirmiziyanlis.TabIndex = 4;
+            this.pictureBoxkirmiziyanlis.TabStop = false;
+            this.pictureBoxkirmiziyanlis.Visible = false;
+            // 
+            // pictureBoxkirmizidogru
+            // 
+            this.pictureBoxkirmizidogru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxkirmizidogru.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxkirmizidogru.Image = global::KADERKISMET.Properties.Resources.icons8_checked_checkbox_96px_1;
+            this.pictureBoxkirmizidogru.Location = new System.Drawing.Point(167, 0);
+            this.pictureBoxkirmizidogru.Name = "pictureBoxkirmizidogru";
+            this.pictureBoxkirmizidogru.Size = new System.Drawing.Size(85, 75);
+            this.pictureBoxkirmizidogru.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxkirmizidogru.TabIndex = 2;
+            this.pictureBoxkirmizidogru.TabStop = false;
+            this.pictureBoxkirmizidogru.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::KADERKISMET.Properties.Resources.icons8_idea_200px;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(85, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pcksologr
+            // 
+            this.pcksologr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(211)))), ((int)(((byte)(182)))));
+            this.pcksologr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcksologr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcksologr.Location = new System.Drawing.Point(0, 0);
+            this.pcksologr.Margin = new System.Windows.Forms.Padding(0);
+            this.pcksologr.Name = "pcksologr";
+            this.pcksologr.Size = new System.Drawing.Size(252, 319);
+            this.pcksologr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcksologr.TabIndex = 0;
+            this.pcksologr.TabStop = false;
             // 
             // splalt_alt
             // 
@@ -429,6 +534,56 @@
             this.splsagogrenci.Size = new System.Drawing.Size(252, 708);
             this.splsagogrenci.SplitterDistance = 319;
             this.splsagogrenci.TabIndex = 1;
+            // 
+            // pictureBoxmavidogru
+            // 
+            this.pictureBoxmavidogru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxmavidogru.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxmavidogru.Image = global::KADERKISMET.Properties.Resources.icons8_checked_checkbox_96px_1;
+            this.pictureBoxmavidogru.Location = new System.Drawing.Point(167, 2);
+            this.pictureBoxmavidogru.Name = "pictureBoxmavidogru";
+            this.pictureBoxmavidogru.Size = new System.Drawing.Size(85, 75);
+            this.pictureBoxmavidogru.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxmavidogru.TabIndex = 5;
+            this.pictureBoxmavidogru.TabStop = false;
+            this.pictureBoxmavidogru.Visible = false;
+            // 
+            // pictureBoxmaviyanlis
+            // 
+            this.pictureBoxmaviyanlis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxmaviyanlis.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxmaviyanlis.Image = global::KADERKISMET.Properties.Resources.icons8_cross_mark_button_96px;
+            this.pictureBoxmaviyanlis.Location = new System.Drawing.Point(168, -1);
+            this.pictureBoxmaviyanlis.Name = "pictureBoxmaviyanlis";
+            this.pictureBoxmaviyanlis.Size = new System.Drawing.Size(85, 75);
+            this.pictureBoxmaviyanlis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxmaviyanlis.TabIndex = 3;
+            this.pictureBoxmaviyanlis.TabStop = false;
+            this.pictureBoxmaviyanlis.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::KADERKISMET.Properties.Resources.icons8_idea_200px;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(85, 75);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pcksagogr
+            // 
+            this.pcksagogr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(211)))), ((int)(((byte)(182)))));
+            this.pcksagogr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcksagogr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcksagogr.Location = new System.Drawing.Point(0, 0);
+            this.pcksagogr.Margin = new System.Windows.Forms.Padding(0);
+            this.pcksagogr.Name = "pcksagogr";
+            this.pcksagogr.Size = new System.Drawing.Size(252, 319);
+            this.pcksagogr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcksagogr.TabIndex = 1;
+            this.pcksagogr.TabStop = false;
             // 
             // splsagalt_alt
             // 
@@ -591,12 +746,25 @@
             this.panelCerceve.Size = new System.Drawing.Size(504, 503);
             this.panelCerceve.TabIndex = 1;
             // 
+            // lblkazanantakim
+            // 
+            this.lblkazanantakim.AutoSize = true;
+            this.lblkazanantakim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblkazanantakim.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblkazanantakim.Location = new System.Drawing.Point(0, 0);
+            this.lblkazanantakim.Name = "lblkazanantakim";
+            this.lblkazanantakim.Size = new System.Drawing.Size(93, 38);
+            this.lblkazanantakim.TabIndex = 2;
+            this.lblkazanantakim.Text = "label4";
+            this.lblkazanantakim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblkazanantakim.Visible = false;
+            // 
             // rchsoru
             // 
             this.rchsoru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(79)))), ((int)(((byte)(34)))));
             this.rchsoru.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rchsoru.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rchsoru.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rchsoru.Font = new System.Drawing.Font("Comic Sans MS", 39.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rchsoru.ForeColor = System.Drawing.SystemColors.Info;
             this.rchsoru.Location = new System.Drawing.Point(0, 0);
             this.rchsoru.Name = "rchsoru";
@@ -664,6 +832,20 @@
             this.tbllytsagbuttonlar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tbllytsagbuttonlar.Size = new System.Drawing.Size(269, 708);
             this.tbllytsagbuttonlar.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Chocolate;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(3, 567);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(263, 138);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "YENİ OYUN KUR";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // tbllytcevapsec
             // 
@@ -798,188 +980,6 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_close_window_26px;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(1216, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 49);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_minimize_window_26px;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(1088, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(64, 49);
-            this.button4.TabIndex = 1;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_maximize_window_26px;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 43);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_restore_window_26px;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(0, 0);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(52, 43);
-            this.button5.TabIndex = 2;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // pictureBoxkirmiziyanlis
-            // 
-            this.pictureBoxkirmiziyanlis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxkirmiziyanlis.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxkirmiziyanlis.Image = global::KADERKISMET.Properties.Resources.icons8_cross_mark_button_96px;
-            this.pictureBoxkirmiziyanlis.Location = new System.Drawing.Point(167, -1);
-            this.pictureBoxkirmiziyanlis.Name = "pictureBoxkirmiziyanlis";
-            this.pictureBoxkirmiziyanlis.Size = new System.Drawing.Size(85, 75);
-            this.pictureBoxkirmiziyanlis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxkirmiziyanlis.TabIndex = 4;
-            this.pictureBoxkirmiziyanlis.TabStop = false;
-            this.pictureBoxkirmiziyanlis.Visible = false;
-            // 
-            // pictureBoxkirmizidogru
-            // 
-            this.pictureBoxkirmizidogru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxkirmizidogru.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxkirmizidogru.Image = global::KADERKISMET.Properties.Resources.icons8_checked_checkbox_96px_1;
-            this.pictureBoxkirmizidogru.Location = new System.Drawing.Point(167, 0);
-            this.pictureBoxkirmizidogru.Name = "pictureBoxkirmizidogru";
-            this.pictureBoxkirmizidogru.Size = new System.Drawing.Size(85, 75);
-            this.pictureBoxkirmizidogru.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxkirmizidogru.TabIndex = 2;
-            this.pictureBoxkirmizidogru.TabStop = false;
-            this.pictureBoxkirmizidogru.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::KADERKISMET.Properties.Resources.icons8_idea_200px;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pcksologr
-            // 
-            this.pcksologr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(211)))), ((int)(((byte)(182)))));
-            this.pcksologr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcksologr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcksologr.Location = new System.Drawing.Point(0, 0);
-            this.pcksologr.Margin = new System.Windows.Forms.Padding(0);
-            this.pcksologr.Name = "pcksologr";
-            this.pcksologr.Size = new System.Drawing.Size(252, 319);
-            this.pcksologr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcksologr.TabIndex = 0;
-            this.pcksologr.TabStop = false;
-            // 
-            // pictureBoxmavidogru
-            // 
-            this.pictureBoxmavidogru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxmavidogru.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxmavidogru.Image = global::KADERKISMET.Properties.Resources.icons8_checked_checkbox_96px_1;
-            this.pictureBoxmavidogru.Location = new System.Drawing.Point(167, 2);
-            this.pictureBoxmavidogru.Name = "pictureBoxmavidogru";
-            this.pictureBoxmavidogru.Size = new System.Drawing.Size(85, 75);
-            this.pictureBoxmavidogru.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxmavidogru.TabIndex = 5;
-            this.pictureBoxmavidogru.TabStop = false;
-            this.pictureBoxmavidogru.Visible = false;
-            // 
-            // pictureBoxmaviyanlis
-            // 
-            this.pictureBoxmaviyanlis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxmaviyanlis.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxmaviyanlis.Image = global::KADERKISMET.Properties.Resources.icons8_cross_mark_button_96px;
-            this.pictureBoxmaviyanlis.Location = new System.Drawing.Point(168, -1);
-            this.pictureBoxmaviyanlis.Name = "pictureBoxmaviyanlis";
-            this.pictureBoxmaviyanlis.Size = new System.Drawing.Size(85, 75);
-            this.pictureBoxmaviyanlis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxmaviyanlis.TabIndex = 3;
-            this.pictureBoxmaviyanlis.TabStop = false;
-            this.pictureBoxmaviyanlis.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::KADERKISMET.Properties.Resources.icons8_idea_200px;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(85, 75);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pcksagogr
-            // 
-            this.pcksagogr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(211)))), ((int)(((byte)(182)))));
-            this.pcksagogr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcksagogr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcksagogr.Location = new System.Drawing.Point(0, 0);
-            this.pcksagogr.Margin = new System.Windows.Forms.Padding(0);
-            this.pcksagogr.Name = "pcksagogr";
-            this.pcksagogr.Size = new System.Drawing.Size(252, 319);
-            this.pcksagogr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcksagogr.TabIndex = 1;
-            this.pcksagogr.TabStop = false;
-            // 
-            // lblkazanantakim
-            // 
-            this.lblkazanantakim.AutoSize = true;
-            this.lblkazanantakim.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblkazanantakim.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblkazanantakim.Location = new System.Drawing.Point(0, 0);
-            this.lblkazanantakim.Name = "lblkazanantakim";
-            this.lblkazanantakim.Size = new System.Drawing.Size(93, 38);
-            this.lblkazanantakim.TabIndex = 2;
-            this.lblkazanantakim.Text = "label4";
-            this.lblkazanantakim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblkazanantakim.Visible = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Chocolate;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(3, 567);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(263, 138);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "YENİ OYUN KUR";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1009,6 +1009,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splsologrenci)).EndInit();
             this.splsologrenci.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmiziyanlis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmizidogru)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcksologr)).EndInit();
             this.splalt_alt.Panel1.ResumeLayout(false);
             this.splalt_alt.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splalt_alt)).EndInit();
@@ -1021,6 +1025,10 @@
             this.splsagogrenci.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splsagogrenci)).EndInit();
             this.splsagogrenci.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmavidogru)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmaviyanlis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcksagogr)).EndInit();
             this.splsagalt_alt.Panel1.ResumeLayout(false);
             this.splsagalt_alt.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splsagalt_alt)).EndInit();
@@ -1040,14 +1048,6 @@
             this.tbllytsagbuttonlar.ResumeLayout(false);
             this.tbllytcevapsec.ResumeLayout(false);
             this.tbllytogrencisec.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmiziyanlis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxkirmizidogru)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcksologr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmavidogru)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxmaviyanlis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcksagogr)).EndInit();
             this.ResumeLayout(false);
 
         }

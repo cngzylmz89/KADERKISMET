@@ -513,7 +513,7 @@
             this.numericUpDown2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.numericUpDown2.Location = new System.Drawing.Point(210, 219);
             this.numericUpDown2.Maximum = new decimal(new int[] {
-            7,
+            10,
             0,
             0,
             0});
@@ -527,7 +527,7 @@
             this.numericUpDown2.TabIndex = 23;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.Value = new decimal(new int[] {
-            5,
+            7,
             0,
             0,
             0});
@@ -718,7 +718,7 @@
             this.numericUpDown1.TabIndex = 22;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
-            15,
+            20,
             0,
             0,
             0});

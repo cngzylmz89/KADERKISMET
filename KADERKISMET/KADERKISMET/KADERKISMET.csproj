@@ -123,13 +123,15 @@
   <ItemGroup>
     <None Include="Resources\tahta.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\Sounds\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icons8_checked_checkbox_96px_1.png" />
     <None Include="Resources\icons8_cross_mark_button_96px.png" />
     <None Include="Resources\tebrikler.gif" />
+    <Content Include="bin\Debug\Sounds\basladi.wav" />
+    <Content Include="bin\Debug\Sounds\dogru.wav" />
+    <Content Include="bin\Debug\Sounds\gecikme.wav" />
+    <Content Include="bin\Debug\Sounds\yanlis.wav" />
     <Content Include="Sounds\berabeser.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

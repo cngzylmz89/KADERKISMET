@@ -672,16 +672,16 @@ namespace KADERKISMET
                     catch (Exception hata)
                     {
 
-                        DialogResult result = MessageBox.Show("Seçmiş olduğunuz excel dosyası programın formatına uygun değildir.Formata uygun excel dosyasının ismi KADERKISMETSORULAR adındadır. Evete tıklayarak uygun excel dosyasını indirebilirsiniz.", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("Seçmiş olduğunuz excel dosyası programın formatına uygun değildir.Formata uygun excel dosyasının ismi KIMBILMEKISTER adındadır. Evete tıklayarak uygun excel dosyasını indirebilirsiniz.", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             try
                             {
-                                string url = "https://docs.google.com/spreadsheets/d/1R_4g3TYMkqcQ8cfpQyKN9JJ_OuF7RtwJ/export?format=xlsx";
-
+                                string url = "https://docs.google.com/spreadsheets/d/11WMcwiIoCSbEczTj0zmcpZ-dhdUG6nPT/export?format=xlsx";
+                             
                                 string kayitYolu = Path.Combine(
                                     Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                                    "KADERKISMETSORULAR.xlsx");
+                                    "KIMBILMEKISTER.xlsx");
 
                                 using (WebClient wc = new WebClient())
                                 {
@@ -728,17 +728,19 @@ namespace KADERKISMET
                     catch (Exception hata)
                     {
 
-                        DialogResult result=MessageBox.Show("Seçmiş olduğunuz excel dosyası programın formatına uygun değildir.Formata uygun excel dosyasının ismi KADERKISMETSORULAR adındadır. Evete tıklayarak uygun excel dosyasını indirebilirsiniz.", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result=MessageBox.Show("Seçmiş olduğunuz excel dosyası programın formatına uygun değildir.Formata uygun excel dosyasının ismi KIMBILMEKISTER adındadır. Evete tıklayarak uygun excel dosyasını indirebilirsiniz.", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             try
                             {
-                            
-                                string url = "https://docs.google.com/spreadsheets/d/1PRY4vbObN8ZKMRLo0STzmSDpkye8Q5sE/export?format=xlsx";
+
+                                
+                                string url = "https://docs.google.com/spreadsheets/d/11WMcwiIoCSbEczTj0zmcpZ-dhdUG6nPT/export?format=xlsx";
+
 
                                 string kayitYolu = Path.Combine(
                                     Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                                    "KADERKISMETSORULAR.xlsx");
+                                    "KIMBILMEKISTER.xlsx");
 
                                 using (WebClient wc = new WebClient())
                                 {

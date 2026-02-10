@@ -30,6 +30,8 @@ namespace KADERKISMET
         SoundPlayer yanlisSes;
         SoundPlayer kazananSes;
         SoundPlayer berabereSes;
+        SoundPlayer gecikmeSes;
+        SoundPlayer baslamaSes;
         public Form1()
         {
             InitializeComponent();
@@ -137,6 +139,9 @@ namespace KADERKISMET
 
 
         string asama;
+
+        bool manuelYazim = false;
+        int oncekiUzunluk = 0;
 
         void KazananYazisiniRchsoruyaAnimasyonluYaz(string metin, Color renk)
         {
@@ -248,6 +253,11 @@ namespace KADERKISMET
                 return;
             }
 
+            manuelYazim = false;
+            oncekiUzunluk = 0;
+            rchsoru.ForeColor = Color.White; // (ya da normal rengin)
+
+
             // Normal akış (soru varsa)
             rchsoru.Clear();
             harfIndex = 0;
@@ -305,13 +315,31 @@ namespace KADERKISMET
             {
                 timer1.Stop(); // Yazım bitince durdur
 
-                btnsorugetir.Enabled=false;
-                btnkirmiziogrsec.Enabled = true;
-                btnmaviogrsec.Enabled=true;
-                
-                timer2.Start();
+                // 🔥 YENİ: BAŞLAMA SESİ ÇAL
+                baslamaSes.Play();
 
+                btnsorugetir.Enabled = false;
+                btnkirmiziogrsec.Enabled = true;
+                btnmaviogrsec.Enabled = true;
+
+                timer2.Start();
             }
+        }
+
+        async Task GecikmeliPuanVer(bool cevap)
+        {
+            // Önce gecikme sesini çal
+            gecikmeSes.Play();
+
+            // Ses süresi kadar bekle
+            int beklemeMs = (int)SesSuresiMilisaniye(
+                System.IO.Path.Combine(Application.StartupPath, "Sounds", "gecikme.wav")
+            );
+
+            await Task.Delay(beklemeMs);
+
+            // Şimdi puanı ver
+            PuanVer(cevap);
         }
         void sorugosterımguncelle()
         {
@@ -403,7 +431,7 @@ namespace KADERKISMET
                 {
                     AktifYanlisPic.Visible = true;
                     ZoomAnimasyonBaslat(AktifYanlisPic,
-                        System.IO.Path.Combine(Application.StartupPath, "Sounds", "yanlis.wav"));
+                    System.IO.Path.Combine(Application.StartupPath, "Sounds", "yanlis.wav"));
                 }
             
             kazananTakim = (aktifTakim == Takim.Kirmizi)
@@ -507,31 +535,37 @@ namespace KADERKISMET
             }
         }
 
-        private void btndogru_Click(object sender, EventArgs e)
+        private async void btndogru_Click(object sender, EventArgs e)
         {
-           
+
             cevapVerildi = true;
             timer3.Stop();
 
-            PuanVer(true);   // "Doğru" butonuna basıldı
-
             btndogru.Enabled = false;
             btnyanlis.Enabled = false;
+
+            // 🔥 YENİ: GECİKMELİ PUAN
+            await GecikmeliPuanVer(true);
+
             btnogrencigetir.Enabled = true;
-            
+
+
         }
 
-        private void btnyanlis_Click(object sender, EventArgs e)
+        private async void btnyanlis_Click(object sender, EventArgs e)
+
         {
-           
             cevapVerildi = true;
             timer3.Stop();
 
-            PuanVer(false);  // "Yanlış" butonuna basıldı
-
             btndogru.Enabled = false;
             btnyanlis.Enabled = false;
+
+            // 🔥 YENİ: GECİKMELİ PUAN
+            await GecikmeliPuanVer(false);
+
             btnogrencigetir.Enabled = true;
+
         }
 
         void sorugetir()
@@ -836,6 +870,32 @@ namespace KADERKISMET
             animTimer.Start();
         }
 
+        private void Rchsoru_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kullanıcı klavyeden bir şey yazarsa bunu işaretle
+            manuelYazim = true;
+        }
+
+
+        private void Rchsoru_TextChanged(object sender, EventArgs e)
+        {
+            if (manuelYazim && rchsoru.Text.Length > oncekiUzunluk)
+            {
+                int mevcutImlec = rchsoru.SelectionStart;
+
+                // 👉 ÖNEMLİ: Sadece YENİ EKLENEN KARAKTERE renk veriyoruz
+                rchsoru.Select(mevcutImlec - 1, 1);
+                rchsoru.SelectionColor = Color.Gold;
+
+                // İmleci eski yerine geri koy
+                rchsoru.SelectionStart = mevcutImlec;
+                rchsoru.SelectionLength = 0;
+            }
+
+            oncekiUzunluk = rchsoru.Text.Length;
+        }
+       
+
         private void AnimTimer_Tick(object sender, EventArgs e)
         {
             if (animLabel == null) return;
@@ -998,7 +1058,9 @@ namespace KADERKISMET
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           
+            // RichTextBox manuel yazım için olayları bağla
+            rchsoru.KeyPress += Rchsoru_KeyPress;
+            rchsoru.TextChanged += Rchsoru_TextChanged;
 
 
 
@@ -1021,7 +1083,18 @@ namespace KADERKISMET
             string kazananYol = System.IO.Path.Combine(sesKlasoru, "kazanan.wav");
             string berabereYol = System.IO.Path.Combine(sesKlasoru, "berabeser.wav");
 
-           
+            string baslamaYol = System.IO.Path.Combine(sesKlasoru, "basladi.wav");
+            string gecikmeYol = System.IO.Path.Combine(sesKlasoru, "gecikme.wav");
+
+            if (!System.IO.File.Exists(baslamaYol))
+                MessageBox.Show("baslama.wav bulunamadı:\n" + baslamaYol);
+
+            if (!System.IO.File.Exists(gecikmeYol))
+                MessageBox.Show("gecikme.wav bulunamadı:\n" + gecikmeYol);
+
+            baslamaSes = new SoundPlayer(baslamaYol);
+            gecikmeSes = new SoundPlayer(gecikmeYol);
+
             kazananSes = new SoundPlayer(kazananYol);
             berabereSes = new SoundPlayer(berabereYol);
 
