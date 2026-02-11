@@ -29,6 +29,7 @@ namespace KADERKISMET
         private const int HTCAPTION = 0x2;
         public frmbaslangic()
         {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             InitializeComponent();
         }
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -677,8 +678,9 @@ namespace KADERKISMET
                         {
                             try
                             {
-                                string url = "https://docs.google.com/spreadsheets/d/11WMcwiIoCSbEczTj0zmcpZ-dhdUG6nPT/export?format=xlsx";
-                             
+                                string url = "https://docs.google.com/spreadsheets/d/1GWyAfi-MLtwkT0zpwxTvxJ2nvTqJQ9Wk/export?format=xlsx";
+
+
                                 string kayitYolu = Path.Combine(
                                     Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                                     "KIMBILMEKISTER.xlsx");
@@ -734,8 +736,8 @@ namespace KADERKISMET
                             try
                             {
 
-                                
-                                string url = "https://docs.google.com/spreadsheets/d/11WMcwiIoCSbEczTj0zmcpZ-dhdUG6nPT/export?format=xlsx";
+
+                                string url = "https://docs.google.com/spreadsheets/d/1GWyAfi-MLtwkT0zpwxTvxJ2nvTqJQ9Wk/export?format=xlsx";
 
 
                                 string kayitYolu = Path.Combine(

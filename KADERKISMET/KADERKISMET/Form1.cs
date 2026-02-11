@@ -34,7 +34,9 @@ namespace KADERKISMET
         SoundPlayer baslamaSes;
         public Form1()
         {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             InitializeComponent();
+            
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -62,7 +64,7 @@ namespace KADERKISMET
             komutvaryokguncelle.ExecuteNonQuery();
 
             conn.Close();
-            sorugosterımguncelle();
+            //sorugosterımguncelle();
             this.Close();
         }
 
@@ -959,7 +961,7 @@ namespace KADERKISMET
                 komutvaryokguncelle.ExecuteNonQuery();
 
                 conn.Close();
-                sorugosterımguncelle();
+                //sorugosterımguncelle();
                 this.Close();
             }
         }
