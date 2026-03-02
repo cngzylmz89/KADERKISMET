@@ -32,13 +32,74 @@ namespace KADERKISMET
         SoundPlayer berabereSes;
         SoundPlayer gecikmeSes;
         SoundPlayer baslamaSes;
+        SoundPlayer siraKirmiziSes;
+        SoundPlayer siraMaviSes;
         public Form1()
         {
             this.AutoScaleMode = AutoScaleMode.Dpi;
             InitializeComponent();
-            
+            this.MouseDown += Form1_MouseDown;
+            this.MouseDown += Form_MouseDown;
+            TumKontrolleriBagla(this);
+
+            // Form içindeki tüm kontroller için de bağlayalım
+            foreach (Control c in this.Controls)
+                c.MouseDown += Form1_MouseDown;
+        }
+        private void TumKontrolleriBagla(Control parent)
+        {
+            parent.MouseDown += OrtakMouseDown;
+
+            foreach (Control c in parent.Controls)
+            {
+                TumKontrolleriBagla(c); // recursive
+            }
+        }
+        private void Form_MouseDown(object sender, MouseEventArgs e)
+{
+    // Butonlar aktif mi kontrol et
+    if (btndogru.Enabled && btnyanlis.Enabled)
+    {
+        if (e.Button == MouseButtons.Right)
+        {
+            btndogru.PerformClick();   // Sağ tık = Doğru
+        }
+        else if (e.Button == MouseButtons.Left)
+        {
+            btnyanlis.PerformClick();  // Sol tık = Yanlış
+        }
+    }
+}
+        private void OrtakMouseDown(object sender, MouseEventArgs e)
+        {
+            // Sadece seçim açıkken çalışsın
+            if (btnkirmiziogrsec.Enabled || btnmaviogrsec.Enabled)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    if (btnkirmiziogrsec.Enabled)
+                    {
+                        btnkirmiziogrsec.PerformClick();
+                        Kilitle(); // ilk basan kazansın
+                    }
+                }
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    if (btnmaviogrsec.Enabled)
+                    {
+                        btnmaviogrsec.PerformClick();
+                        Kilitle(); // ilk basan kazansın
+                    }
+                }
+            }
         }
 
+        private void Kilitle()
+        {
+            btnkirmiziogrsec.Enabled = false;
+            btnmaviogrsec.Enabled = false;
+        }
         private void label1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -196,12 +257,13 @@ namespace KADERKISMET
         }
         private void btnsorugetir_Click_1(object sender, EventArgs e)
         {
+            btnsorugetir.Enabled = false;
             sorugetir();   // Önce soru çek
 
             if (string.IsNullOrEmpty(aktifSoru))
             {
                 // Sorular gerçekten bitti → artık sormadan oyunu bitiriyoruz
-                btnsorugetir.Enabled = false;
+              
 
                 string sonucMesaji;
                 Color sonucRengi;
@@ -306,7 +368,7 @@ namespace KADERKISMET
         }
         string aktifSoru = "";   // Çekilen soru burada tutulacak
         int harfIndex = 0;       // Yazdırılacak harfin sırası
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             if (harfIndex < aktifSoru.Length)
             {
@@ -317,10 +379,19 @@ namespace KADERKISMET
             {
                 timer1.Stop(); // Yazım bitince durdur
 
-                // 🔥 YENİ: BAŞLAMA SESİ ÇAL
-                baslamaSes.Play();
-
                 btnsorugetir.Enabled = false;
+
+                // Önce butonları kapat
+                btnkirmiziogrsec.Enabled = false;
+                btnmaviogrsec.Enabled = false;
+
+                // 🔥 SESİ BEKLEYEREK ÇAL
+                await Task.Run(() =>
+                {
+                    baslamaSes.PlaySync(); // Ses bitene kadar bekler
+                });
+
+                // ✅ Ses bittikten sonra aktif et
                 btnkirmiziogrsec.Enabled = true;
                 btnmaviogrsec.Enabled = true;
 
@@ -358,7 +429,7 @@ namespace KADERKISMET
             maviSecildi = false;
             aktifTakim = Takim.Kirmizi;
             soruCevaplandi = false;
-
+            siraKirmiziSes.Play();
             pictureBox1.Visible = true;
             pictureBox2.Visible = false;
 
@@ -388,6 +459,8 @@ namespace KADERKISMET
 
             pictureBox2.Visible = true;
             pictureBox1.Visible = false;
+
+            siraMaviSes.Play();   // 🔵 sıra mavi
 
             timer2.Stop();
             timer3.Start();
@@ -997,6 +1070,26 @@ namespace KADERKISMET
                 zoomPic = null;
             }
         }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Sadece seçim açıkken çalışsın
+            if (btnkirmiziogrsec.Enabled || btnmaviogrsec.Enabled)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    if (btnkirmiziogrsec.Enabled)
+                        btnkirmiziogrsec.PerformClick();
+                }
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    if (btnmaviogrsec.Enabled)
+                        btnmaviogrsec.PerformClick();
+                }
+            }
+        }
+
         double SesSuresiMilisaniye(string dosyaYolu)
         {
             using (var reader = new System.Media.SoundPlayer(dosyaYolu))
@@ -1074,6 +1167,17 @@ namespace KADERKISMET
 
 
             string sesKlasoru = System.IO.Path.Combine(Application.StartupPath, "Sounds");
+            string siraKirmiziYol = System.IO.Path.Combine(sesKlasoru, "sirakirmizi.wav");
+            string siraMaviYol = System.IO.Path.Combine(sesKlasoru, "siramavi.wav");
+
+            if (!System.IO.File.Exists(siraKirmiziYol))
+                MessageBox.Show("sirakirmizi.wav bulunamadı:\n" + siraKirmiziYol);
+
+            if (!System.IO.File.Exists(siraMaviYol))
+                MessageBox.Show("siramavi.wav bulunamadı:\n" + siraMaviYol);
+
+            siraKirmiziSes = new SoundPlayer(siraKirmiziYol);
+            siraMaviSes = new SoundPlayer(siraMaviYol);
 
             if (!System.IO.Directory.Exists(sesKlasoru))
             {
@@ -1118,7 +1222,7 @@ namespace KADERKISMET
             timer3.Interval = 1000; // 1 saniye
             timer2.Interval = 1000; // 1 saniye
             timer1.Interval = 150; // 50 ms = hızlı yazım (istersen artır)
-            timer1.Tick += timer1_Tick;
+           // timer1.Tick += timer1_Tick;
             pictureBox1.Visible= false;
             pictureBox2.Visible= false;
             pictureBoxmavidogru.Parent = pcksagogr;
@@ -1157,6 +1261,32 @@ namespace KADERKISMET
 
 
 
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_LBUTTONDOWN = 0x0201;
+            const int WM_RBUTTONDOWN = 0x0204;
+
+            // Sadece takım seçim butonları aktifken çalışsın
+            if (btnkirmiziogrsec.Enabled || btnmaviogrsec.Enabled)
+            {
+                if (m.Msg == WM_LBUTTONDOWN)
+                {
+                    // SOL TIK → KIRMIZI SEÇ
+                    if (btnkirmiziogrsec.Enabled)
+                        btnkirmiziogrsec.PerformClick();
+                }
+
+                if (m.Msg == WM_RBUTTONDOWN)
+                {
+                    // SAĞ TIK → MAVİ SEÇ
+                    if (btnmaviogrsec.Enabled)
+                        btnmaviogrsec.PerformClick();
+                }
+            }
+
+            base.WndProc(ref m);
         }
 
 

@@ -131,6 +131,8 @@
     <Content Include="bin\Debug\Sounds\basladi.wav" />
     <Content Include="bin\Debug\Sounds\dogru.wav" />
     <Content Include="bin\Debug\Sounds\gecikme.wav" />
+    <Content Include="bin\Debug\Sounds\sirakirmizi.wav" />
+    <Content Include="bin\Debug\Sounds\siramavi.wav" />
     <Content Include="bin\Debug\Sounds\yanlis.wav" />
     <Content Include="Sounds\berabeser.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
