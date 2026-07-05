@@ -123,7 +123,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1114, 49);
+            this.label1.Size = new System.Drawing.Size(1485, 49);
             this.label1.TabIndex = 0;
             this.label1.Text = "KİM BİLMEK İSTER?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,9 +133,10 @@
             // 
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Location = new System.Drawing.Point(1182, 3);
+            this.panel1.Location = new System.Drawing.Point(1576, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(52, 43);
+            this.panel1.Size = new System.Drawing.Size(69, 41);
             this.panel1.TabIndex = 4;
             // 
             // button2
@@ -147,7 +148,7 @@
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 43);
+            this.button2.Size = new System.Drawing.Size(69, 41);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -161,7 +162,7 @@
             this.button5.Location = new System.Drawing.Point(0, 0);
             this.button5.Margin = new System.Windows.Forms.Padding(0);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(52, 43);
+            this.button5.Size = new System.Drawing.Size(69, 41);
             this.button5.TabIndex = 2;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -179,10 +180,11 @@
             this.tableLayoutPanel3.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1311, 49);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1748, 49);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // button1
@@ -190,10 +192,10 @@
             this.button1.BackgroundImage = global::KADERKISMET.Properties.Resources.icons8_close_window_26px;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(1244, 0);
+            this.button1.Location = new System.Drawing.Point(1659, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 49);
+            this.button1.Size = new System.Drawing.Size(79, 49);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -204,10 +206,10 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(1114, 0);
+            this.button4.Location = new System.Drawing.Point(1485, 0);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 49);
+            this.button4.Size = new System.Drawing.Size(87, 49);
             this.button4.TabIndex = 1;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -217,6 +219,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -229,8 +232,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splaltana);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(1311, 756);
+            this.splitContainer1.Size = new System.Drawing.Size(1748, 930);
             this.splitContainer1.SplitterDistance = 49;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 4;
             // 
             // splaltana
@@ -238,6 +242,7 @@
             this.splaltana.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splaltana.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splaltana.Location = new System.Drawing.Point(0, 0);
+            this.splaltana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splaltana.Name = "splaltana";
             this.splaltana.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -248,14 +253,16 @@
             // splaltana.Panel2
             // 
             this.splaltana.Panel2.Controls.Add(this.splfooter);
-            this.splaltana.Size = new System.Drawing.Size(1311, 703);
-            this.splaltana.SplitterDistance = 655;
+            this.splaltana.Size = new System.Drawing.Size(1748, 876);
+            this.splaltana.SplitterDistance = 827;
+            this.splaltana.SplitterWidth = 5;
             this.splaltana.TabIndex = 1;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -265,8 +272,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splasilsag);
-            this.splitContainer2.Size = new System.Drawing.Size(1311, 655);
-            this.splitContainer2.SplitterDistance = 797;
+            this.splitContainer2.Size = new System.Drawing.Size(1748, 827);
+            this.splitContainer2.SplitterDistance = 1062;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
             // dataGridView1
@@ -289,9 +297,11 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(797, 655);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(1062, 827);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -304,6 +314,7 @@
             this.splasilsag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splasilsag.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splasilsag.Location = new System.Drawing.Point(0, 0);
+            this.splasilsag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splasilsag.Name = "splasilsag";
             // 
             // splasilsag.Panel1
@@ -313,8 +324,9 @@
             // splasilsag.Panel2
             // 
             this.splasilsag.Panel2.Controls.Add(this.splsag);
-            this.splasilsag.Size = new System.Drawing.Size(510, 655);
+            this.splasilsag.Size = new System.Drawing.Size(681, 827);
             this.splasilsag.SplitterDistance = 91;
+            this.splasilsag.SplitterWidth = 5;
             this.splasilsag.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -325,11 +337,12 @@
             this.tableLayoutPanel1.Controls.Add(this.btnasagi, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(91, 655);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(91, 827);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnyukari
@@ -340,7 +353,7 @@
             this.btnyukari.Location = new System.Drawing.Point(0, 0);
             this.btnyukari.Margin = new System.Windows.Forms.Padding(0);
             this.btnyukari.Name = "btnyukari";
-            this.btnyukari.Size = new System.Drawing.Size(91, 327);
+            this.btnyukari.Size = new System.Drawing.Size(91, 413);
             this.btnyukari.TabIndex = 0;
             this.btnyukari.Text = "YUKARI";
             this.btnyukari.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -353,10 +366,10 @@
             this.btnasagi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnasagi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnasagi.Image = global::KADERKISMET.Properties.Resources.icons8_down_200px;
-            this.btnasagi.Location = new System.Drawing.Point(0, 327);
+            this.btnasagi.Location = new System.Drawing.Point(0, 413);
             this.btnasagi.Margin = new System.Windows.Forms.Padding(0);
             this.btnasagi.Name = "btnasagi";
-            this.btnasagi.Size = new System.Drawing.Size(91, 328);
+            this.btnasagi.Size = new System.Drawing.Size(91, 414);
             this.btnasagi.TabIndex = 1;
             this.btnasagi.Text = "AŞAĞI";
             this.btnasagi.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -379,8 +392,9 @@
             // splsag.Panel2
             // 
             this.splsag.Panel2.Controls.Add(this.splsagalt_alt);
-            this.splsag.Size = new System.Drawing.Size(415, 655);
+            this.splsag.Size = new System.Drawing.Size(585, 827);
             this.splsag.SplitterDistance = 304;
+            this.splsag.SplitterWidth = 5;
             this.splsag.TabIndex = 0;
             // 
             // tbllytpnlsagust
@@ -399,7 +413,7 @@
             this.tbllytpnlsagust.RowCount = 2;
             this.tbllytpnlsagust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbllytpnlsagust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbllytpnlsagust.Size = new System.Drawing.Size(415, 304);
+            this.tbllytpnlsagust.Size = new System.Drawing.Size(585, 304);
             this.tbllytpnlsagust.TabIndex = 0;
             // 
             // label5
@@ -409,9 +423,10 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(210, 152);
+            this.label5.Location = new System.Drawing.Point(296, 152);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 152);
+            this.label5.Size = new System.Drawing.Size(285, 152);
             this.label5.TabIndex = 3;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -422,9 +437,10 @@
             this.lbltoplamogrsayi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbltoplamogrsayi.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbltoplamogrsayi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbltoplamogrsayi.Location = new System.Drawing.Point(3, 152);
+            this.lbltoplamogrsayi.Location = new System.Drawing.Point(4, 152);
+            this.lbltoplamogrsayi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltoplamogrsayi.Name = "lbltoplamogrsayi";
-            this.lbltoplamogrsayi.Size = new System.Drawing.Size(201, 152);
+            this.lbltoplamogrsayi.Size = new System.Drawing.Size(284, 152);
             this.lbltoplamogrsayi.TabIndex = 2;
             this.lbltoplamogrsayi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -435,9 +451,10 @@
             this.lblIkinciGrup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIkinciGrup.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblIkinciGrup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIkinciGrup.Location = new System.Drawing.Point(210, 0);
+            this.lblIkinciGrup.Location = new System.Drawing.Point(296, 0);
+            this.lblIkinciGrup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIkinciGrup.Name = "lblIkinciGrup";
-            this.lblIkinciGrup.Size = new System.Drawing.Size(202, 152);
+            this.lblIkinciGrup.Size = new System.Drawing.Size(285, 152);
             this.lblIkinciGrup.TabIndex = 1;
             this.lblIkinciGrup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -448,9 +465,10 @@
             this.lblBirinciGrup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBirinciGrup.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblBirinciGrup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBirinciGrup.Location = new System.Drawing.Point(3, 0);
+            this.lblBirinciGrup.Location = new System.Drawing.Point(4, 0);
+            this.lblBirinciGrup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBirinciGrup.Name = "lblBirinciGrup";
-            this.lblBirinciGrup.Size = new System.Drawing.Size(201, 152);
+            this.lblBirinciGrup.Size = new System.Drawing.Size(284, 152);
             this.lblBirinciGrup.TabIndex = 0;
             this.lblBirinciGrup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -470,8 +488,9 @@
             // splsagalt_alt.Panel2
             // 
             this.splsagalt_alt.Panel2.Controls.Add(this.btnbasla);
-            this.splsagalt_alt.Size = new System.Drawing.Size(415, 347);
-            this.splsagalt_alt.SplitterDistance = 256;
+            this.splsagalt_alt.Size = new System.Drawing.Size(585, 518);
+            this.splsagalt_alt.SplitterDistance = 426;
+            this.splsagalt_alt.SplitterWidth = 5;
             this.splsagalt_alt.TabIndex = 0;
             // 
             // tblsagalt
@@ -495,6 +514,7 @@
             this.tblsagalt.Controls.Add(this.numericUpDown1, 1, 5);
             this.tblsagalt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblsagalt.Location = new System.Drawing.Point(0, 0);
+            this.tblsagalt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblsagalt.Name = "tblsagalt";
             this.tblsagalt.RowCount = 7;
             this.tblsagalt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -504,14 +524,15 @@
             this.tblsagalt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tblsagalt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tblsagalt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblsagalt.Size = new System.Drawing.Size(415, 256);
+            this.tblsagalt.Size = new System.Drawing.Size(585, 426);
             this.tblsagalt.TabIndex = 0;
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.numericUpDown2.Location = new System.Drawing.Point(210, 219);
+            this.numericUpDown2.Location = new System.Drawing.Point(296, 364);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10,
             0,
@@ -523,7 +544,7 @@
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(202, 37);
+            this.numericUpDown2.Size = new System.Drawing.Size(285, 44);
             this.numericUpDown2.TabIndex = 23;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.Value = new decimal(new int[] {
@@ -539,9 +560,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(3, 216);
+            this.label4.Location = new System.Drawing.Point(4, 360);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 40);
+            this.label4.Size = new System.Drawing.Size(284, 66);
             this.label4.TabIndex = 21;
             this.label4.Text = "2. SÜRE SANİYE";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -553,9 +575,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(3, 180);
+            this.label2.Location = new System.Drawing.Point(4, 300);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 36);
+            this.label2.Size = new System.Drawing.Size(284, 60);
             this.label2.TabIndex = 19;
             this.label2.Text = "1. SÜRE SANİYE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,9 +591,10 @@
             this.cmbtest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbtest.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbtest.FormattingEnabled = true;
-            this.cmbtest.Location = new System.Drawing.Point(210, 147);
+            this.cmbtest.Location = new System.Drawing.Point(296, 244);
+            this.cmbtest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbtest.Name = "cmbtest";
-            this.cmbtest.Size = new System.Drawing.Size(202, 28);
+            this.cmbtest.Size = new System.Drawing.Size(285, 33);
             this.cmbtest.TabIndex = 18;
             // 
             // label8
@@ -580,9 +604,10 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(3, 144);
+            this.label8.Location = new System.Drawing.Point(4, 240);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(201, 36);
+            this.label8.Size = new System.Drawing.Size(284, 60);
             this.label8.TabIndex = 17;
             this.label8.Text = "TEST SEÇ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -594,9 +619,10 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(3, 72);
+            this.label9.Location = new System.Drawing.Point(4, 120);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(201, 36);
+            this.label9.Size = new System.Drawing.Size(284, 60);
             this.label9.TabIndex = 16;
             this.label9.Text = "DERS SEÇ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -609,9 +635,10 @@
             this.cmbkonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbkonu.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbkonu.FormattingEnabled = true;
-            this.cmbkonu.Location = new System.Drawing.Point(210, 111);
+            this.cmbkonu.Location = new System.Drawing.Point(296, 184);
+            this.cmbkonu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbkonu.Name = "cmbkonu";
-            this.cmbkonu.Size = new System.Drawing.Size(202, 28);
+            this.cmbkonu.Size = new System.Drawing.Size(285, 33);
             this.cmbkonu.TabIndex = 15;
             this.cmbkonu.SelectedValueChanged += new System.EventHandler(this.cmbkonu_SelectedValueChanged);
             // 
@@ -622,9 +649,10 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(3, 108);
+            this.label10.Location = new System.Drawing.Point(4, 180);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 36);
+            this.label10.Size = new System.Drawing.Size(284, 60);
             this.label10.TabIndex = 14;
             this.label10.Text = "KONU SEÇ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -637,9 +665,10 @@
             this.cmbders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbders.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbders.FormattingEnabled = true;
-            this.cmbders.Location = new System.Drawing.Point(210, 75);
+            this.cmbders.Location = new System.Drawing.Point(296, 124);
+            this.cmbders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbders.Name = "cmbders";
-            this.cmbders.Size = new System.Drawing.Size(202, 28);
+            this.cmbders.Size = new System.Drawing.Size(285, 33);
             this.cmbders.TabIndex = 11;
             this.cmbders.SelectedValueChanged += new System.EventHandler(this.cmbders_SelectedValueChanged);
             // 
@@ -650,9 +679,10 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(3, 36);
+            this.label7.Location = new System.Drawing.Point(4, 60);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(201, 36);
+            this.label7.Size = new System.Drawing.Size(284, 60);
             this.label7.TabIndex = 5;
             this.label7.Text = "KAYNAK SEÇ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -665,9 +695,10 @@
             this.label6.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(4, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(201, 36);
+            this.label6.Size = new System.Drawing.Size(284, 60);
             this.label6.TabIndex = 3;
             this.label6.Text = "SINIF SEÇ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,9 +710,10 @@
             this.cmbsinif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbsinif.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbsinif.FormattingEnabled = true;
-            this.cmbsinif.Location = new System.Drawing.Point(210, 3);
+            this.cmbsinif.Location = new System.Drawing.Point(296, 4);
+            this.cmbsinif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbsinif.Name = "cmbsinif";
-            this.cmbsinif.Size = new System.Drawing.Size(202, 28);
+            this.cmbsinif.Size = new System.Drawing.Size(285, 33);
             this.cmbsinif.TabIndex = 4;
             this.cmbsinif.SelectedValueChanged += new System.EventHandler(this.cmbsinif_SelectedValueChanged);
             // 
@@ -690,9 +722,10 @@
             this.btnkaynaksec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnkaynaksec.Enabled = false;
             this.btnkaynaksec.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnkaynaksec.Location = new System.Drawing.Point(210, 39);
+            this.btnkaynaksec.Location = new System.Drawing.Point(296, 64);
+            this.btnkaynaksec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnkaynaksec.Name = "btnkaynaksec";
-            this.btnkaynaksec.Size = new System.Drawing.Size(202, 30);
+            this.btnkaynaksec.Size = new System.Drawing.Size(285, 52);
             this.btnkaynaksec.TabIndex = 12;
             this.btnkaynaksec.Text = "TIKLA";
             this.btnkaynaksec.UseVisualStyleBackColor = true;
@@ -702,7 +735,8 @@
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.numericUpDown1.Location = new System.Drawing.Point(210, 183);
+            this.numericUpDown1.Location = new System.Drawing.Point(296, 304);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             30,
             0,
@@ -714,7 +748,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(202, 37);
+            this.numericUpDown1.Size = new System.Drawing.Size(285, 44);
             this.numericUpDown1.TabIndex = 22;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
@@ -730,8 +764,9 @@
             this.btnbasla.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnbasla.ForeColor = System.Drawing.Color.White;
             this.btnbasla.Location = new System.Drawing.Point(0, 0);
+            this.btnbasla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnbasla.Name = "btnbasla";
-            this.btnbasla.Size = new System.Drawing.Size(415, 87);
+            this.btnbasla.Size = new System.Drawing.Size(585, 87);
             this.btnbasla.TabIndex = 1;
             this.btnbasla.Text = "BAŞLA";
             this.btnbasla.UseVisualStyleBackColor = false;
@@ -742,6 +777,7 @@
             this.splfooter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splfooter.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splfooter.Location = new System.Drawing.Point(0, 0);
+            this.splfooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splfooter.Name = "splfooter";
             // 
             // splfooter.Panel1
@@ -751,8 +787,9 @@
             // splfooter.Panel2
             // 
             this.splfooter.Panel2.Controls.Add(this.linkLabel1);
-            this.splfooter.Size = new System.Drawing.Size(1311, 44);
-            this.splfooter.SplitterDistance = 891;
+            this.splfooter.Size = new System.Drawing.Size(1748, 44);
+            this.splfooter.SplitterDistance = 1327;
+            this.splfooter.SplitterWidth = 5;
             this.splfooter.TabIndex = 0;
             // 
             // panelFooter
@@ -761,17 +798,19 @@
             this.panelFooter.Controls.Add(this.lblKayanYazi);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFooter.Location = new System.Drawing.Point(0, 0);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(891, 44);
+            this.panelFooter.Size = new System.Drawing.Size(1327, 44);
             this.panelFooter.TabIndex = 0;
             // 
             // lblKayanYazi
             // 
             this.lblKayanYazi.AutoSize = true;
             this.lblKayanYazi.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKayanYazi.Location = new System.Drawing.Point(112, 4);
+            this.lblKayanYazi.Location = new System.Drawing.Point(149, 5);
+            this.lblKayanYazi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKayanYazi.Name = "lblKayanYazi";
-            this.lblKayanYazi.Size = new System.Drawing.Size(56, 23);
+            this.lblKayanYazi.Size = new System.Drawing.Size(69, 29);
             this.lblKayanYazi.TabIndex = 0;
             this.lblKayanYazi.Text = "label3";
             // 
@@ -783,8 +822,9 @@
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.linkLabel1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.linkLabel1.Location = new System.Drawing.Point(0, 0);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(164, 18);
+            this.linkLabel1.Size = new System.Drawing.Size(206, 24);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "PROGRAM HAKKINDA";
@@ -797,11 +837,12 @@
             // 
             // frmbaslangic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 756);
+            this.ClientSize = new System.Drawing.Size(1748, 930);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmbaslangic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmbaslangic";
